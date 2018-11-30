@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Accordion</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- accordion -->
+	<style>
+		body{ margin: 20px; }
+
+		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
+		.ui-header h2{ font-size: 20px; }
+		.ui-header h3{ font-size: 16px; }
+		
+
+		.ui-header{ margin-bottom: 20px; }
+		.ui-header li:before{
+			content:'-';
+			display: inline-block;
+			width: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="ui-header">
+		<h1>UI-components</h1>
+        <h2># Accordion</h2>
+        <p>Standard accordion / no frameWork / </p>
+   </div>
+
+
+	<div class="ui-header">
+		 <h3>1. Accordion--A</h3>
+		 <ul>
+		 	<li>data-current / data-index </li>
+		 	<li>JS는 함수표현식으로 작성 accordion 은 인자값을 number 값으로 넘겨서 처리</li>
+		 	<li>setToggleCurrent</li>
+		 	<li>display / none / block </li>
+		 </ul>
+	</div>
+
+	<!-- style -->
+	<style type="text/css">
+		.comp-accordion{}
+		.comp-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+
+		.accordion-group{
+			margin-bottom: 10px;
+		}
+		
+		.accordion-tab{
+			border: 1px solid #ddd;
+			border-radius: 2px;
+
+		}
+
+		.accordion-tab > button{
+			padding: 10px;
+			width: 100%;
+			text-align: left;
+			box-sizing: border-box;
+		}
+
+		
+		.accordion-panel .inner{
+			
+			padding: 15px;
+			
+		}
+
+		/* design */
+		.comp-accordion[data-pattern="standard"]{
+			width: 100%;
+		
+		}
+		.comp-accordion[data-pattern=""]{}
+
+/* transiton */
+/*
+.accordion-panel { overflow: hidden; height: 0px;}
+.accordion-panel { transition: 1s; }
+
+.comp-accordion[data-current="1"] .accordion-group[data-index="1"] .accordion-panel, 
+.comp-accordion[data-current="2"] .accordion-group[data-index="2"] .accordion-panel,
+.comp-accordion[data-current="3"] .accordion-group[data-index="3"] .accordion-panel { 
+	
+	height: auto;
+}
+.comp-accordion[data-current="1"] .accordion-group[data-index="1"] .accordion-tab,
+.comp-accordion[data-current="2"] .accordion-group[data-index="2"] .accordion-tab,
+.comp-accordion[data-current="3"] .accordion-group[data-index="3"] .accordion-tab{
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom: 0;
+	background-color: #ddd;
+		
+}
+*/
+
+	</style>
+	
+	<style>
+		
+
+		/* script */
+		/* none - block */
+		.comp-accordion[data-pattern="S"] .accordion-panel{ display: none; }
+
+		.comp-accordion[data-pattern="S"][data-current="1"] .accordion-group[data-index="1"] .accordion-panel, 
+		.comp-accordion[data-pattern="S"][data-current="2"] .accordion-group[data-index="2"] .accordion-panel,
+		.comp-accordion[data-pattern="S"][data-current="3"] .accordion-group[data-index="3"] .accordion-panel { 
+
+			display: block;
+			background-color: #f3f3f3;
+		}
+		.comp-accordion[data-pattern="S"][data-current="1"] .accordion-group[data-index="1"] .accordion-tab,
+		.comp-accordion[data-pattern="S"][data-current="2"] .accordion-group[data-index="2"] .accordion-tab,
+		.comp-accordion[data-pattern="S"][data-current="3"] .accordion-group[data-index="3"] .accordion-tab{
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+			border-bottom: 0;
+			background-color: #ddd;
+				
+		}
+	</style>
+	<!-- markup -->
+	<div id="uiAccordion--1" class="comp-accordion" data-current="1" data-pattern="S">
+		<div class="comp-inner">
+			
+			<!-- group -->
+			<article class="accordion-group" data-index="1">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="acco-tab" onclick="accordion(1);">아코디언--1</button></div>	
+				<div class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--1</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="2">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion(2);">아코디언--2</button></div>	
+				<div class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--2</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="3">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion(3);">아코디언--3</button></div>	
+				<div class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--3</p>
+					</div>
+				</div>
+			</article>
+
+		</div>
+	</div>
+	<script>
+		/* display : none - block */
+		var accordion = function(idx){
+			setCurrentToggle( document.getElementById('uiAccordion--1'), idx );
+		};
+	</script>
+
+	<div class="ui-header">
+		 <h3>2. Accordion--B</h3>
+		 <ul>
+		 	<li>data-current / data-index </li>
+		 	<li>JS는 함수표현식으로 작성 accordion 은 인자값을 number 값으로 넘겨서 처리</li>
+		 	<li>setToggleCurrent</li>
+		 	<li>height: 0 / height: fixed height value / overflow-y: scroll  </li>
+		 	<li>adding animation : css transition </li>
+		 </ul>
+	</div>
+
+	<style>
+		
+		/* script */
+		/* none - block */
+		.comp-accordion[data-pattern="B"] .accordion-panel {
+			height: 0;
+			overflow: hidden;
+			transition: height 0.5s ease;
+		}
+
+		.comp-accordion[data-pattern="B"][data-current="1"] .accordion-group[data-index="1"] .accordion-panel, 
+		.comp-accordion[data-pattern="B"][data-current="2"] .accordion-group[data-index="2"] .accordion-panel,
+		.comp-accordion[data-pattern="B"][data-current="3"] .accordion-group[data-index="3"] .accordion-panel{ 
+			height: 150px;
+			overflow-y: scroll;
+			background-color: #f3f3f3;
+		}
+
+		.comp-accordion[data-pattern="B"][data-current="1"] .accordion-group[data-index="1"] .accordion-tab,
+		.comp-accordion[data-pattern="B"][data-current="2"] .accordion-group[data-index="2"] .accordion-tab,
+		.comp-accordion[data-pattern="B"][data-current="3"] .accordion-group[data-index="3"] .accordion-tab{
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+			border-bottom: 0;
+			background-color: #ddd;
+				
+		}
+	</style>
+
+	<div id="uiAccordion--2" class="comp-accordion" data-current="1" data-pattern="B">
+		<div class="comp-inner">
+			
+			<!-- group -->
+			<article class="accordion-group" data-index="1">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="acco-tab" onclick="accordion2(1);">아코디언--1</button></div>	
+				<div id="accordionpanel-1" class="accordion-panel">
+					<div class="inner">
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="2">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion2(2);">아코디언--2</button></div>	
+				<div id="accordionpanel-2" class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--2</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="3">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion2(3);">아코디언--3</button></div>	
+				<div id="accordionpanel-3" class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--3</p>
+					</div>
+				</div>
+			</article>
+
+		</div>
+	</div>
+	<script>
+		/* height :0 --> height:값 추출  */
+		var accordion2 = function(idx){
+			
+			//var elPanelHeight = document.getElementById('accordionpanel-'+idx).children.offsetHeight;
+			//console.log(elPanelHeight);
+			setCurrentToggle( document.getElementById('uiAccordion--2'), idx );
+
+		};
+	</script>
+	
+	<div class="ui-header">
+		 <h3>2_1. Accordion--B</h3>
+		 <ul>
+		 	<li>data-current / data-index </li>
+		 	<li>JS는 함수표현식으로 작성 accordion 은 인자값을 number 값으로 넘겨서 처리</li>
+		 	<li>setToggleCurrent</li>
+		 	<li>height: 0 / height: fixed height value  </li>
+		 	<li>adding animation : css transition </li>
+		 </ul>
+	</div>
+
+	<style>
+		
+		/* script */
+		/* none - block */
+		.comp-accordion[data-pattern="C"] .accordion-panel {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.5s ease;
+		}
+
+		.comp-accordion[data-pattern="C"][data-current="1"] .accordion-group[data-index="1"] .accordion-panel, 
+		.comp-accordion[data-pattern="C"][data-current="2"] .accordion-group[data-index="2"] .accordion-panel,
+		.comp-accordion[data-pattern="C"][data-current="3"] .accordion-group[data-index="3"] .accordion-panel{ 
+			background-color: #f3f3f3;
+		}
+
+		.comp-accordion[data-pattern="C"][data-current="1"] .accordion-group[data-index="1"] .accordion-tab,
+		.comp-accordion[data-pattern="C"][data-current="2"] .accordion-group[data-index="2"] .accordion-tab,
+		.comp-accordion[data-pattern="C"][data-current="3"] .accordion-group[data-index="3"] .accordion-tab{
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+			border-bottom: 0;
+			background-color: #ddd;
+				
+		}
+	</style>
+
+	<div id="uiAccordion--3" class="comp-accordion" data-current="1" data-pattern="C">
+		<div class="comp-inner">
+			
+			<!-- group -->
+			<article class="accordion-group" data-index="1">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="acco-tab" onclick="accordion3(1);">아코디언--1</button></div>	
+				<div id="acco-1" class="accordion-panel">
+					<div class="inner">
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					<p>아코디언--contetn--1</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="2">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion3(2);">아코디언--2</button></div>	
+				<div id="acco-2" class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--2</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="accordion-group" data-index="3">
+				<div class="accordion-tab" ><button type="button" data-expand="" class="btn-tab" onclick="accordion3(3);">아코디언--3</button></div>	
+				<div id="acco-3" class="accordion-panel">
+					<div class="inner">
+						<p>아코디언--contetn--3</p>
+					</div>
+				</div>
+			</article>
+
+		</div>
+	</div>
+	<script>
+		
+		window.onload = function(){
+
+			document.getElementById('acco-1').style.maxHeight = document.getElementById('acco-1').scrollHeight + "px";
+		}
+		/* maxheight :0 --> maxheight:값 추출  */
+		var accordion3 = function(idx){
+			
+			//var elPanelHeight = document.getElementById('acco-'+idx).scrollHeight;
+
+			setCurrentToggle2( document.getElementById('uiAccordion--3'), idx);
+
+		};
+	</script>
+
+
+	<script>
+		// Toggle data-current 
+		// getAttribute 
+		// setAttribute 
+		var setCurrentToggle = function(el, idx){
+				//var elIdx = el.getAttribute("data-current");
+				el.setAttribute("data-current", idx);
+
+
+		};
+
+		//animate add
+		var setCurrentToggle2 = function(el, idx){
+				//var elIdx = el.getAttribute("data-current");
+				var elPanels = document.getElementsByClassName("accordion-panel");
+				var elPanel= document.getElementById('acco-'+idx);
+
+			
+				for (var i = 0; i < elPanels.length; i++) {
+					
+					elPanels[i].style.maxHeight = "0px";
+				}
+			
+				el.setAttribute("data-current", idx);
+				elPanel.style.maxHeight =  elPanel.scrollHeight + "px";
+
+
+		};
+
+	</script>
+
+
+	<div class="ui-header">
+		 <h3>3. Accordion--C</h3>
+		 <ul>
+		 	<li>Makrup : (title)Button + (content)div element </li>
+		 	<li> data-current 사용하지 않음. </li>
+		 	<li>max-height: 0 / max-height value  </li>
+		 	<li>adding animation : css transition </li>
+		 </ul>
+	</div>
+
+	<style>
+		.comp-accordion--1{ width: 100%; text-align: left;}
+		.acco-tit {
+			width: 100%;
+			background-color: whitesmoke;
+			text-align: left;
+			padding: 15px;
+			cursor: pointer;
+			transition: background-color .4s linear;
+		}
+		.acco-tit:after{
+			content:'';
+			float: right;
+			display: inline-block;
+			border: solid black;
+		    border-width: 0 3px 3px 0;
+		    display: inline-block;
+		    padding: 3px;
+
+			transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+
+		}
+		.acco-tit:hover {
+			background-color: #ddd;
+		}
+
+		
+		.acco-tit.is-open:after,
+		.acco-tit:hover:after{
+			 transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+
+		}
+
+		.acco-content{
+			padding: 0 20px;
+			border-left: 1px solid whitesmoke;
+			border-right: 1px solid whitesmoke;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height .4s ease-in-out;
+		}
+
+		.acco-content:last-child{
+			border-bottom: 1px solid whitesmoke;
+		}
+
+		.acco-content .inner{
+			padding: 20px 0;
+		}
+
+	</style>
+	
+	<!-- markup -->
+	<!--
+		https://www.youtube.com/watch?v=VTdSW57--yM
+	-->	
+	<div class="comp-accordion--1">
+		<div class="div-inner">
+				
+				<!-- -->
+				<div class="acco-item">
+					<button class="acco-tit" onclick="fn_accordion(0); return false;">Accordion #1</button>
+					<div class="acco-content">
+						<div class="inner">
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+						</div>
+					</div>
+				</div>
+				<div class="acco-item">
+					<button class="acco-tit" onclick="fn_accordion(1); return false;">Accordion #2</button>
+					<div class="acco-content">
+						<div class="inner">
+							<p>dkdkdkdkdkd</p>
+						</div>
+					</div>
+				</div>
+				<div class="acco-item">
+					<button class="acco-tit" onclick="fn_accordion(2); return false;">Accordion #3</button>
+					<div class="acco-content">
+						<div class="inner">
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+							<p>dkdkdkdkdkd</p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<script>
+	
+		// accordion 
+		/*
+		var elitems = document.getElementsByClassName("acco-tit");
+
+		for (var i = 0; i < elitems.length; i++) {
+			
+			elitems[i].onclick = function(){
+
+				var content = this.nextElementSibling ;
+
+				console.log( content );
+
+				if( content.style.maxHeight ){
+
+					console.log(content.style.maxHeight);
+
+					// accordion is open, we need to close it
+					content.style.maxHeight = null ;
+
+				}else{
+
+					//accordion is closed
+					console.log("content.scrollHeight : " + content.scrollHeight);
+					content.style.maxHeight = content.scrollHeight + "px";
+
+				}
+			}
+		}
+		*/
+
+		function fn_accordion(idx){
+
+			var elitems = document.getElementsByClassName("acco-tit");
+			var elconts= document.getElementsByClassName("acco-content");
+
+			//toggle
+			elitems[idx].classList.toggle('is-open');
+
+			var content =  elconts[idx];
+
+			console.log(content);
+
+			if( content.style.maxHeight ){
+
+				// if accordion is open, we need to close it
+				content.style.maxHeight = null ;
+
+			}else{
+
+				//accordion is closed
+				content.style.maxHeight = content.scrollHeight + "px";
+
+			}
+
+		}
+		
+			
+	</script>
+
+</body>
+</html>
