@@ -28,8 +28,9 @@ table{
 fieldset,img{
     border:0
 }
-ol,ul{
-    list-style:none
+ol, ul{
+    list-style:none;
+    margin-left: 10px;
 }
 address,em{
     font-style:normal
