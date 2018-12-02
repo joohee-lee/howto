@@ -30,7 +30,6 @@ fieldset,img{
 }
 ol, ul{
     list-style:none;
-    margin-left: 10px;
 }
 address,em{
     font-style:normal
@@ -54,3 +53,21 @@ button,input{
     background:0 0;
     border: 0;
 }
+
+
+/********* design **********/
+
+.header{
+    background-color: green;
+    margin-bottom: 10px;
+    color: #fff;
+
+
+}
+.header .header-inner{
+    padding: 20px 10px ;
+ }
+.header h1{
+    font-size: 25px;
+}
+        
