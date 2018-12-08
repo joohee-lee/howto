@@ -28,10 +28,7 @@
 	
 	<div class="header">
 		<div class="header-inner">
-
-			<h1>SanBo.UI</h1>
-			<span> 산책하는 Web  ( guidebyDh.) </span>
-			
+			<h1>joo.Ui</h1>
 		</div>
 	</div>
 
@@ -442,8 +439,7 @@
 		}
 
 		
-		.acco-tit.is-open:after,
-		.acco-tit:hover:after{
+		.acco-tit.is-open:after{
 			 
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
@@ -552,11 +548,19 @@
 
 			//toggle
 			/* elitems[idx].classList.toggle('is-open'); */
-			if ( elitems[idx].hasAttribute("is-open") ) { 
-			    elitems[idx].setAttribute("class", "acco-tit");
+
+			console.log( elitems[idx].className );
+			if ( elitems[idx].className == "acco-tit" ) { 
+
+				 //console.log(elitems[idx].className == "acco-tit" );
+				  elitems[idx].className = "acco-tit is-open" ;	
+
 			}else{
-			  	elitems[idx].setAttribute("class", "acco-tit is-open");
+
+				//console.log(elitems[idx].className == "acco-tit" );
+			  	elitems[idx].className = "acco-tit" ;
 			}
+			
 
 			var content =  elconts[idx];
 
@@ -576,6 +580,12 @@
 
 		}
 		
+
+		//className 존재여부 
+		function hasClass(element, cls) {
+    		return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+		}
+
 			
 	</script>
 

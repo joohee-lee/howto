@@ -1,0 +1,154 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab : sanbo UI</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- accordion -->
+	<style>
+		body{ margin: 20px; }
+
+		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
+		.ui-header h2{ font-size: 20px; }
+		.ui-header h3{ font-size: 16px; }
+		
+
+		.ui-header{ margin-bottom: 20px; }
+		.ui-header li:before{
+			content:'-';
+			display: inline-block;
+			width: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="header">
+		<div class="header-inner">
+
+			<h1>Joo.UI</h1>
+			
+			
+		</div>
+	</div>
+
+	<div class="ui-header">
+		<h1>UI-components</h1>
+        <h2># Tab </h2>
+        <p>Standard Tab ui / no frameWork / </p>
+   </div>
+
+
+	<div class="ui-header">
+		 <h3>1. Scrollable Tabs</h3>
+		 <ul>
+		 	<li>Markup : ul,li, a, div </li>
+		 	<li>ARIA Example : role="presentation" / tablist / tab / tabpanel</li>
+		 	<li>JS: 
+		 		<div style="margin-left: 30px; font-weight: bold">			
+				tab_init() <br>
+		 		setTabCurrent()<br>
+		 		setCurrent()<br>
+		 		setNext()<br>
+		 		setPrev() <br>
+		 		setPlay()<br>
+		 		setStop()<br>
+		 		autorolling
+		 		</div>	
+		 	</li>
+		 	<li>setTabCurrent(this, objTab1); this 인자값은 this 를 넘겨  getAttribute("data-index") 값을 가져온다. </li>
+		 	<li>setTabCurrent(this, objTab1) objTab1 .... : 필요한 데이타를 저장하여 처리.  </li>
+		 	<li>js control : data-current / data-index </li>
+		 	<li>css : display / none / block </li>
+		 </ul>
+	</div>
+
+	<style>
+		
+		
+	</style>
+
+	<div class="ui-header">
+		 <h3>#comp-scrTab--1</h3>
+	</div>
+
+	<div id="comp-scrTab--1" class="comp-scroll-tab comp-scr-olltab--1" data-current="1">
+		<div class="comp-inner">
+			
+			<div class="tabs-list">
+                <ul id="ulTabs" class="ul-tabs">
+                    <li class="tabs-item" data-index="1"><a href="#" onclick="setTabsCurrent(1); return false;">카테고리-1</a></li>
+                    <li class="tabs-item" data-index="2"><a href="#" onclick="setTabsCurrent(2); return false;">카테고리-2</a></li>
+                    <li class="tabs-item" data-index="3"><a href="#" onclick="setTabsCurrent(3); return false;">카테고리-3</a></li>
+                    <li class="tabs-item" data-index="4"><a href="#" onclick="setTabsCurrent(4); return false;">카테고리-4</a></li>
+                    <li class="tabs-item" data-index="5"><a href="#" onclick="setTabsCurrent(5); return false;">카테고리-5</a></li>
+                    <li class="tabs-item" data-index="6"><a href="#" onclick="setTabsCurrent(6); return false;">카테고리-6</a></li>
+                    <li class="tabs-item" data-index="7"><a href="#" onclick="setTabsCurrent(7); return false;">카테고리-7</a></li>
+                    <li class="tabs-item" data-index="8"><a href="#" onclick="setTabsCurrent(8); return false;">카테고리-8</a></li>
+                    <li class="tabs-item" data-index="9"><a href="#" onclick="setTabsCurrent(9); return false;">카테고리-9</a></li>
+                    <li class="tabs-item" data-index="10"><a href="#" onclick="setTabsCurrent(10); return false;">카테고리-10</a></li>
+					<li class="tabs-item" data-index="11"><a href="#" onclick="setTabsCurrent(11); return false;">카테고리-11</a></li>
+					<li class="tabs-item" data-index="12"><a href="#" onclick="setTabsCurrent(12); return false;">카테고리-12</a></li>
+					<li class="tabs-item" data-index="13"><a href="#" onclick="setTabsCurrent(13); return false;">카테고리-13</a></li>
+					<li class="tabs-item" data-index="14"><a href="#" onclick="setTabsCurrent(14); return false;">카테고리-14</a></li>
+					<li class="tabs-item" data-index="15"><a href="#" onclick="setTabsCurrent(15); return false;">카테고리-15</a></li>
+                </ul>
+            </div>
+
+
+            <div class='tabs-panel' data-index="1" data-display="true">
+                <div class="tabs-cont">content--1</div>
+            </div>
+            <div class='tabs-panel' data-index="2" data-display="false">
+                <div class="tabs-cont">content--2</div>
+            </div>
+            <div class='tabs-panel' data-index="3" data-display="false">
+                <div class="tabs-cont">content--3</div>
+            </div>
+            <div class='tabs-panel' data-index="4" data-display="false">
+                <div class="tabs-cont">content--4</div>
+            </div>
+            <div class='tabs-panel' data-index="5" data-display="false">
+                <div class="tabs-cont">content--5</div>
+            </div>
+            <div class='tabs-panel' data-index="6" data-display="false">
+                <div class="tabs-cont">content--6</div>
+            </div>
+            <div class='tabs-panel' data-index="7" data-display="false">
+                <div class="tabs-cont">content--7</div>
+            </div>
+            <div class='tabs-panel' data-index="8" data-display="false">
+                <div class="tabs-cont">content--8</div>
+            </div>
+            <div class='tabs-panel' data-index="9" data-display="false">
+                <div class="tabs-cont">content--9</div>
+            </div>
+            <div class='tabs-panel' data-index="10" data-display="false">
+                <div class="tabs-cont">content--10</div>
+            </div>
+            <div class='tabs-panel' data-index="11" data-display="false">
+                <div class="tabs-cont">content--11</div>
+            </div>
+            <div class='tabs-panel' data-index="12" data-display="false">
+                <div class="tabs-cont">content--12</div>
+            </div>
+            <div class='tabs-panel' data-index="13" data-display="false">
+                <div class="tabs-cont">content--13</div>
+            </div>
+            <div class='tabs-panel' data-index="14" data-display="false">
+                <div class="tabs-cont">content--14</div>
+            </div>
+            <div class='tabs-panel' data-index="15" data-display="false">
+                <div class="tabs-cont">content--15</div>
+            </div>
+
+		</div>
+	</div>
+
+	
+
+</body>
+</html>
