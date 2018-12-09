@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Accordion</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		body{ margin: 20px 20px 10px; }
+
+		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
+		.ui-header h2{ font-size: 20px; }
+		.ui-header h3{ font-size: 16px; }
+		
+
+		.ui-header{ margin-bottom: 20px; }
+		.ui-header li:before{
+			content:'-';
+			display: inline-block;
+			width: 20px;
+		}
+	</style>
+	<!-- accordion -->
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	
+	<div class="header">
+		<div class="header-inner">
+			<h1>joo.Ui</h1>
+		</div>
+	</div>
+
+
+	<div class="ui-header">
+		<h1>UI-components</h1>
+        <h2># Accordion (javascript + jquery) </h2>
+
+        <p>Standard accordion / + jquery / </p>
+        <p>https://code.jquery.com/jquery-3.3.1.min.js</p>
+        <p>slector : jquery</p>
+		<p>function: javascript</p>
+		<p>evnet binding 은 html inline 방식으로 </p>
+		<p>animate : jquery animaite()</p>
+
+   </div>
+
+
+	<div class="ui-header">
+		 <h3>1. Accordion</h3>
+		 <ul>
+		 	<li>dl / dt / dd markup </li>
+		 	<li>data-expanded="true" / "false"</li>
+		 	<li>setExpanded(this, obj.elcomp, obj.elItem)</li>
+		 </ul>
+	</div>
+
+	<br>
+	<style>
+		.comp-accordion{ 
+			width: 100%;
+		 }
+
+		 .div-inner{
+		 	content: '';
+		 	display: block;
+		 	clear: both;
+		 }
+			
+		.comp-accordion .item{
+			margin-bottom: 1px;
+		}
+		 .comp-accordion .item a{
+		 	display: block;
+		 	background-color: #ccc;
+		 	padding: 18px;
+		 }
+
+		 .comp-accordion .item a:after{
+		 	float: right;
+		 	content: '\002B';
+		    font-weight: bold;
+		    color: #777;
+		    margin-left: 5px;
+		 }
+		
+		.comp-accordion .panel{
+			padding: 10px;
+			background-color: #f3f3f3;
+		}
+		/* script */
+		 .comp-acco-1 .item[data-expanded="false"]+.panel{
+		 	display: none;
+		 }
+
+		 .comp-acco-1 .item[data-expanded="true"]+.panel{
+		 	display: block;
+		 }
+
+		 .comp-accordion .item[data-expanded="true"] a:after{
+
+		     content: "\2212";
+
+		 }
+		 
+
+		  .comp-acco-2 .item[data-expanded="false"]+.panel,
+		  .comp-acco-3 .item[data-expanded="false"]+.panel{
+		 	display: none;
+		 }
+
+
+	</style>
+
+	<h3>accordion.init(this, 'comp-acco-1'); return false </h3>
+	<div class="comp-accordion comp-acco-1" data-current="">
+		<div class="div-inner">
+			
+			<dl>
+				<dt class="item" role="heading" data-expanded="true">
+					<a role="button" href="#" data-index="0" onclick="accordion.init(this, 'comp-acco-1'); return false">dt -- 1</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 1 </dd>
+
+				<dt class="item" role="heading" data-expanded="false">
+					<a role="button" href="#" data-index="1" onclick="accordion.init(this, 'comp-acco-1'); return false">dt -- 2</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 2</dd>
+				
+				<dt class="item" role="heading" data-expanded="false">
+					<a role="button" href="#" data-index="2" onclick="accordion.init(this, 'comp-acco-1'); return false">dt -- 3</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 3</dd>
+			</dl>
+
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	
+	
+	<h3>accordion.init(this, 'comp-acco-2'); return false </h3>
+	<div class="comp-accordion comp-acco-2" data-current="">
+		<div class="div-inner">
+			
+			<dl>
+				<dt class="item" role="heading" data-expanded="true">
+					<a role="button" href="#" data-index="0" onclick="accordion.init(this, 'comp-acco-2'); return false">dt -- 1</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 1 </dd>
+
+				<dt class="item" role="heading" data-expanded="false">
+					<a role="button" href="#" data-index="1" onclick="accordion.init(this, 'comp-acco-2'); return false">dt -- 2</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 2</dd>
+				
+				<dt class="item" role="heading" data-expanded="false">
+					<a role="button" href="#" data-index="2" onclick="accordion.init(this, 'comp-acco-2'); return false">dt -- 3</a>
+				</dt>
+				<dd class="panel" role="region"> dd -- 내용 3</dd>
+			</dl>
+
+		</div>
+	</div>
+
+	
+	<script>	
+	
+	//accordion 
+	window.accordion = (function(){
+
+		//var el, elcomp, elItem, elPanel, elIdx ;
+		obj = {
+
+			elcomp: '',
+			elItem: '',
+			elPanel:'',
+			elIdx: 0,
+			getExpanded: true
+
+		}
+
+		//this, id 
+		function init(el, id){
+
+			var el = el;
+			var id = id;
+			obj.elComp = $("."+id);
+			obj.elItem = $('.'+id +' .item');
+			 
+			obj.elIdx = el.getAttribute("data-index");
+			obj.getExpanded = obj.elItem[obj.elIdx].getAttribute("data-expanded");
+
+			//함수적용 
+			setExpanded();
+
+		}
+
+		function setExpanded(){
+
+			obj.getExpanded = ( obj.getExpanded == "true" ) ? "false" : "true";
+
+			obj.elItem[obj.elIdx].setAttribute("data-expanded", obj.getExpanded );
+		}
+
+		return{init:init}
+
+
+	})();	
+
+
+	// jquery
+	$(function(){
+
+		console.log("실행");
+
+		// accordion 
+		accordion.init();
+
+	});
+
+
+	</script>
+</body>
+</html>

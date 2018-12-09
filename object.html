@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object</title>
+</head>
+<body>
+	
+	<div id="hotelName"></div>
+	<div id="hotelRooms"></div>
+</body>
+<script>
+	/* var object  = { property : value , .... check: function(){ return this.room * this.booked} } */
+	// 객체생상 - 일반적인 표기법 
+	/*
+	var hotel = {
+		name: 'park',
+		rooms: 120,
+		booked: 70,
+		gym: true,
+		roomType: ['트윈', '싱글', '스위트'],
+
+		checkAvailability: function(){
+			var free = this.rooms - this.booked;
+			return free;
+		}
+	};	
+
+
+	var elName = document.getElementById("hotelName");
+	elName.textContent = hotel.name ;
+
+	var elRooms = document.getElementById("hotelRooms");
+	elRooms.textContent = hotel.checkAvailability();
+	*/
+
+	//객체생성하기 :  생성자표기법 
+
+	var hotel = new Object();
+
+	/* var hotel = {} */
+
+	hotel.name = "quany";
+	hotel.rooms = 40;
+	hotel.booked = 5;
+
+	hotel.checkAvailability = function(){
+
+		var free = this.rooms - this.booked;
+		return free;
+	}
+
+
+	var elName = document.getElementById("hotelName");
+	elName.textContent = hotel.name ;
+
+	var elRooms = document.getElementById("hotelRooms");
+	elRooms.textContent = hotel.checkAvailability();
+
+</script>
+</html>
+
+
