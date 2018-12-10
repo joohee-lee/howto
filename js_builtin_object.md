@@ -125,7 +125,37 @@ for(var i = 1; i > elItem.length ; i++){
 - toExponential() - 숫자를 지수 표기법으로 변환한 문자열로 리턴.  orgNumber.toExponential(3) "1.023e+1"
 
 
-## global 객체 - Math 객체 
+## global 객체 - Math 객체  (수학 상수 및 함수를 위한 속성과 메서드를 제공 )
+
+### 속성
+- Math.PI  - PI 값을 리턴한다. 
+
+### 메서드 
+- Math.round() - 숫자를 가장 근접한 정수로 올림 / 내림한다. 
+- Math.sqrt(n) - 양의 제곱근을 리턴한다. Math.sqrt(9)는 3을 리턴한다. 
+- Math.ceil() - 지정된 숫자를 자신보다 큰 가장 가까운 정수로 올림한다. 
+- Math.floor() - 지정된 숫자를 자신보다 작은 , 가장 가까운 정수로 내림한다. 
+- Math.random() - 0, 1 사이의 임의의 숫자를 생성한다. 이때 0은 포함되지만 1은 포함되지 않는다. 
+
+
+## global 객체 - Date 객체 - 날짜를 다루려면 먼저 Date 객체의 인스턴스를 생성해야 한다. 
+
+- var today = new Date();
+
+## 메서드 
+- getDate() / setDate() - 해당월의 날짜(1일 ~ 31일 ) 사이를 리턴 / 지정한다. 
+- getDay()
+- getFullYear() / setFullYear()
+- getHours() / setHours()
+- getMilliseconds() / setMilliseconds()
+- getMinutes() / setMinutes()
+- getMonth() / setMonth()
+- getSeconds() / setSeconds()
+- getTime() / setTime()
+- getTimezoneOffset()
+- toDateString()
+- toTimestring()
+- toString()
 
 
 
