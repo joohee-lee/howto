@@ -1,0 +1,237 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab : sanbo UI</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- side -->
+	<style>
+		body{  }
+
+		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
+		.ui-header h2{ font-size: 20px; }
+		.ui-header h3{ font-size: 16px; }
+		
+
+		.ui-header{ margin-bottom: 20px; }
+		.ui-header li:before{
+			content:'-';
+			display: inline-block;
+			width: 20px;
+		}
+		
+
+		.header{
+			position: relative;
+		}
+
+		.header .ui-menu{
+			position: absolute;
+			right: 10px;
+			top: 25px;
+		}
+
+		.menu-toggle{
+			display: block;
+		    position: relative;
+		    z-index: 1;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+		.menu-toggle input {
+			display: block;
+		    width: 40px;
+		    height: 32px;
+		    position: absolute;
+		    top: -7px;
+		    left: -5px;
+		    cursor: pointer;
+		    opacity: 0;
+		    z-index: 2;
+		    -webkit-touch-callout: none;
+		}
+
+		.menu-toggle .bar{
+			display: block;
+		    width: 33px;
+		    height: 4px;
+		    margin-bottom: 5px;
+		    position: relative;
+		    background: #cdcdcd;
+		    border-radius: 3px;
+		    z-index: 1;
+		    -webkit-transform-origin: 4px 0px;
+		    transform-origin: 4px 0px;
+		    transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+		    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
+		    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+		    background-color: #000;
+		}
+		
+		#menuToggle .bar:first-child
+		{
+		  transform-origin: 0% 0%;
+		}
+
+		#menuToggle span:nth-last-child(2)
+		{
+		  transform-origin: 0% 100%;
+		}
+	
+		
+		.div-side-menu{
+			
+			overflow: hidden;
+			position: fixed;
+		    top: 0;
+		    right: 0;
+		    z-index: 99999;
+
+		    width:100%;
+		    height:0;
+		    background-color:rgba(0,0,0,0);
+		    -webkit-backface-visibility:hidden;
+		    -webkit-transition:background-color .3s,height 0s .3s;
+		    transition:background-color .3s,height 0s .3s
+		}
+		.side-on .div-side-menu{
+			width: 100%;
+			height: 100%;
+		    background-color: rgba(0,0,0,.7);
+		    -webkit-transition: background-color .3s;
+		    transition: background-color .3s;
+		}
+	
+
+
+
+		.div-side-menu .div-menu-area{
+			position:absolute;
+		    top:0;
+		    right:0;
+		    z-index:999;
+		  
+		    width:100%;
+		    height:100%;
+		  
+		    font-size:15px;
+		    background-color:#F2F2F2;
+		    -webkit-transition:all .3s ease-out 0s;
+		    transition:all .3s ease-out 0s;
+		    -webkit-transform:translate3d(100%,0,0) scale(1,1);
+		    transform:translate3d(100%,0,0) scale(1,1)
+
+		}
+
+		.side-on .div-menu-area{
+			width: 360px;
+			height:100%;
+			-webkit-transform:translate3d(0,0,0) scale(1,1);
+    		transform:translate3d(0,0,0) scale(1,1)
+		
+		}
+
+		.scroll_on .div-menu-area{
+		    -webkit-transition-duration:0;
+		    transition-duration:0
+		}
+	
+	</style>
+</head>
+<body class="">
+
+	<div  class="bd-wrap">
+		
+		<!-- header -->
+		<div class="header">
+			<div class="header-inner">
+				<h1>joo.Ui</h1>
+			</div>
+			
+			<div class="ui-menu">
+				<button type="button" class="menu-toggle" onclick="sideToggle(); return false;">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+			</div>
+		</div>
+
+		<!-- side menu -->
+		<div class="div-side-menu" data-hidden="false" >
+
+			<div class="div-menu-area">
+				<div class="">
+					내용
+				</div>
+
+				<div class="control">
+					<button type="button" class="btn-close" onclick="sideToggle(); return false;">닫기</button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="ui-header" style="margin: 10px;">
+		<h1>UI-components</h1>
+        <h2># 전체메뉴 / Mobile </h2>
+        <p>Standard Menu / no frameWork / </p>
+        <div>
+		## div-side-menu ; client height 값 구하기  <br>
+		## height: 736px; transform: translate3d(100%, 0px, 0px); <br>
+		## height: 736px; transform: translate3d(0%, 0px, 0px);<br>
+		</div> 
+	</div>
+
+
+	<script>
+
+		var sideToggle = function(){
+
+				var elBody = document.getElementsByTagName('body')[0];
+				var winHeight = window.innerHeight;
+				var elMenu = document.querySelector('.div-menu-area'); // 첫번째 값을 가져오다. 
+				var elSide = document.querySelector('.div-side-menu'); // 첫번째 값을 가져오다. 
+				//var elSideHeight = elSide.clientHeight;
+
+				//console.log( elHeight);
+
+				if ( hasClass(elBody, 'side-on') ) {
+
+					//console.log(hasClass(elBody, 'side-on'));
+					 
+					elMenu.style.transform = "translate3d(100%, 0px, 0px)";
+					elBody.className = elBody.className.replace('side-on', "");
+					elBody.className = elBody.className.replace('scroll-on', "");
+
+				}else{
+					
+					elMenu.style.height = winHeight + "px"; 
+					elMenu.style.transform = "translate3d(0%, 0px, 0px)"; 
+					//elMenu.style.backgroundColor = "red";
+					//elBody.className = 'side-on';
+					elBody.className = 'side-on scroll-on';
+					
+				}
+		}
+
+	
+		//has class 
+		function hasClass(ele,cls) {
+		     return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+		}
+
+		
+
+	</script>
+
+</body>
+</html>
