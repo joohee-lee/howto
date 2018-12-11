@@ -4,9 +4,13 @@
 ## Event Handling 
 
 ### HTML 이벤트 핸들러 
-<a href="" onclick="hide()">click</a>
 
+```
+ <a href="" onclick="hide()">click</a> 
+```
 - 이 방법은 권장하지는 않지만 운영이 쉽다고 생각함. 
+- 빠른 개발, 단순한 기능, 보안상 중요하지 않은 기능, 
+- 라이브러리를 이용 안한다면 inline 또는 onload와 같이 속성을 통해 직접 이벤트 등록
 
 
 
@@ -15,6 +19,7 @@
 #### element.onevent = functionName;
 
 - ex) 
+```
 next.onclick = next ;
 
 function next(){
@@ -31,7 +36,7 @@ function next(){
 	return false;
 
 }
-
+```
 
 ### DOM2 이벤트 리스너 (event lintener) - ie8 에서 작동 되지 않음. 
 - 하나의 이벤트로 여러개의 함수를 실행 할 수 있다. 
@@ -42,7 +47,7 @@ function next(){
 [, 불리언] --> capture 기능을 지정하며 일반적으로 false 를 사용한다. 
 
 - ex1) 
-
+```
 function next(){
 	current = current +1;
 
@@ -56,17 +61,22 @@ function next(){
 	return false;
 }
 
+
 var el = document.ElementById('btnNext');
 el.addEventListener('click', next, false);
+```
 
 (이벤트 네이밍 줄때 "on" 을 생략 )
 
 - ex2 ) 함수의 인수를 전달하여야 할 경우, 익명함수(anonymous funciton) 으로 감싼다. 
 
-- el.addEventListner('click', function(){  chekUsername(5);  }, false);
+```
+ el.addEventListner('click', function(){  chekUsername(5);  }, false);
 
+```
 #### addEventListener & attachEvent
 
+```
 if (el.addEventListener){
 		
  	el.addEventListner('click', function(){  chekUsername(5);  }, false);
@@ -78,10 +88,12 @@ if (el.addEventListener){
 
 file - /ecommerce/ecom_banner-1-addEventListener.html
 js - addEventListener-iffy.js
-
+```
 
 #### 이벤트 (캡쳐링, 버블링)
 - 링크의 기본동작을 실행되지 않도록 한다. 
+
+```
 - preventDefault()
 
 if(event.preventDefault){
@@ -98,7 +110,7 @@ if(event.stopPropagation){
 	event.cancelBubble = true;
 
 }
-
+```
 
 - return flase;
 :요소의 기본동작을 중단함과 동시에 이벤트가 버블링 되거나, 캡처링되는 것도 중단 할 수 있다. 
