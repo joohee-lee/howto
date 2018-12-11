@@ -101,7 +101,9 @@
 		    transition: background-color .3s;
 		}
 
-		*/
+		*/	
+
+		.div-side-menu { position: relative; }
 	
 		.div-side-menu .div-menu-area{
 			position: fixed;
@@ -132,13 +134,12 @@
 		
 		}
 
-		.div-inner{ position: relative; }
-		.div-inner .control{ 
+		
+		.control{ 
 				position: absolute;
 				right: 10px;
 				top: 10px;
 		 }
-	
 	</style>
 </head>
 <body class="">
@@ -164,14 +165,12 @@
 		<div class="div-side-menu" data-hidden="false" >
 
 			<div class="div-menu-area">
-				<div class="div-inner">
-					<div class="">
-						내용
-					</div>
+				<div class="">
+					내용
+				</div>
 
-					<div class="control">
-						<button type="button" class="btn-close" onclick="sideToggle(); return false;">닫기</button>
-					</div>
+				<div class="control">
+					<button type="button" class="btn-close" onclick="sideToggle(); return false;">닫기</button>
 				</div>
 			</div>
 

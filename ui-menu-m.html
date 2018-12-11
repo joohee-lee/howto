@@ -9,12 +9,8 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<!-- side -->
 	<style>
-		body{  }
-		
-		html{
-			height: 100%;
-		    height: 100vh;
-		}
+		body{ margin: 20px; }
+
 		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
 		.ui-header h2{ font-size: 20px; }
 		.ui-header h3{ font-size: 16px; }
@@ -34,7 +30,7 @@
 
 		.header .ui-menu{
 			position: absolute;
-			left: 10px;
+			right: 10px;
 			top: 25px;
 		}
 
@@ -47,7 +43,18 @@
 		    -ms-user-select: none;
 		    user-select: none;
 		}
-		
+		.menu-toggle input {
+			display: block;
+		    width: 40px;
+		    height: 32px;
+		    position: absolute;
+		    top: -7px;
+		    left: -5px;
+		    cursor: pointer;
+		    opacity: 0;
+		    z-index: 2;
+		    -webkit-touch-callout: none;
+		}
 
 		.menu-toggle .bar{
 			display: block;
@@ -75,24 +82,47 @@
 		{
 		  transform-origin: 0% 100%;
 		}
-	
-		
-		/*
-		.div-side-menu{
-			
-			overflow: hidden;
-			position: fixed;
-		    top: 0;
-		    left: 0;
-		    z-index: 99999;
 
-		    width:100%;
-		    height:0;
-		    background-color:rgba(0,0,0,0);
-		    -webkit-backface-visibility:hidden;
-		    -webkit-transition:background-color .3s,height 0s .3s;
-		    transition:background-color .3s,height 0s .3s
+		
+		.div-side-menu{
+			overflow: hidden; 
+		    position: fixed;
+		    top: 0;
+		    right: 0;
+		    z-index: 99999;
+		    width: 0;
+		    height: 0;
+		    background-color: rgba(0,0,0,0);
+		    -webkit-backface-visibility: hidden;
+		    -webkit-transition: background-color .3s,height 0s .3s;
+		    transition: background-color .3s,height 0s .3s;
+
+		  
 		}
+
+		.div-side-menu .div-menu-area{
+			position:absolute;
+		    top:0;
+		    right:0;
+		    z-index:999;
+		  
+		    width:100%;
+		    height:auto;
+		  
+		    font-size:15px;
+		    background-color:#F2F2F2;
+		    -webkit-transition:all .3s ease-out 0s;
+		    transition:all .3s ease-out 0s;
+		    -webkit-transform:translate3d(100%,0,0) scale(1);
+		    transform:translate3d(100%,0,0) scale(1)
+
+		}
+
+		.scroll-on {
+			overflow-x: hidden;
+   			position: relative;
+   		}
+
 		.side-on .div-side-menu{
 			width: 100%;
 			height: 100%;
@@ -101,36 +131,21 @@
 		    transition: background-color .3s;
 		}
 
-		*/
-	
-		.div-side-menu .div-menu-area{
-			position: fixed;
-		    top: 0;
-		    left: 0;
-		    bottom: 0;
-		    width: 240px;
-		    margin: 0;
-		    padding: 0;
-		    opacity: 0;
-		    -webkit-transform: translate3d(-100%, 0, 0);
-		    transform: translate3d(-100%, 0, 0);
-		    -webkit-transition: -webkit-transform .5s, opacity 0s .5s;
-		    transition: transform .5s, opacity 0s .5s;
-		    z-index: 101;
-		    background: #fff;
-		    overflow: hidden;
-		    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+		.side-on .div-menu-area{
+			width: 360px;
+			height: 100%;
+			-webkit-transform: translate3d(0,0,0) scale(1);
+			 transform: translate3d(0,0,0) scale(1);
+
+			 -webkit-transition:all .3s ease-out 0s;
+		    transition:all .3s ease-out 0s;
 		}
 
-		.side-on .div-menu-area{
-			width: 100%;	
-			-webkit-transform: translate3d(0, 0, 0);
-		    transform: translate3d(0, 0, 0);
-		    opacity: 1;
-		    -webkit-transition: -webkit-transform .5s, opacity 5s;
-		    transition: transform .5s, opacity .5s;
-		
+		.scroll_on .div-menu-area{
+		    -webkit-transition-duration:0;
+		    transition-duration:0
 		}
+		
 
 		.div-inner{ position: relative; }
 		.div-inner .control{ 
@@ -139,6 +154,9 @@
 				top: 10px;
 		 }
 	
+
+
+
 	</style>
 </head>
 <body class="">
@@ -148,7 +166,7 @@
 		<!-- header -->
 		<div class="header">
 			<div class="header-inner">
-				<h1 style="text-align: center">joo.Ui</h1>
+				<h1>joo.Ui</h1>
 			</div>
 			
 			<div class="ui-menu">
@@ -179,54 +197,80 @@
 
 	</div>
 
-	
-	<div class="ui-header" style="margin: 10px;">
-		<h1>UI-components</h1>
-        <h2># 전체메뉴 / Mobile </h2>
-        <p>Standard Menu / no frameWork / </p>
-        <div>
-		## div-side-menu ; client height 값 구하기  <br>
-		## elMenu.style.transform = "translate3d(0%, 0px, 0px)"; <br>
-		## elMenu.style.transform = "translate3d( -"  + cWidth + "px , 0px, 0px)";<br>
-		</div> 
-	</div>
 
+height: 736px; transform: translate3d(100%, 0px, 0px);
+height: 736px; transform: translate3d(0%, 0px, 0px);
 
 	<script>
 
-		var sideToggle = function(){
+		function sideToggle(){
+
+				console.log("aaa");
 
 				var elBody = document.getElementsByTagName('body')[0];
+				var elMenu = document.getElementsByClassName('div-menu-area')[0];
 
-				var cWidth = document.body.clientWidth;
-				var cHeight = document.body.clientheight;
+				console.log(elBody);
+				console.log(elMenu);
+
+				//elBody.className = "side-on";
+
 				
-				var elMenu = document.querySelector('.div-menu-area'); // 첫번째 값을 가져오다. 
-				var elSide = document.querySelector('.div-side-menu'); // 첫번째 값을 가져오다. 
-				//var elSideHeight = elSide.clientHeight;
-
-				//console.log( cWidth);
-
 				if ( hasClass(elBody, 'side-on') ) {
 
-					//console.log(hasClass(elBody, 'side-on'));
-					 
-					//elMenu.style.transform = "translate3d( -100%, 0px, 0px)";
+					console.log(hasClass(elBody, 'side-on'));
 
-					elMenu.style.transform = "translate3d( -"  + cWidth + "px , 0, 0)";
+					elMenu.style.transform = "translate3d(100%, 0px, 0px)";
 					elBody.className = elBody.className.replace('side-on', "");
+					 
 					//elBody.className = elBody.className.replace('scroll-on', "");
 
 				}else{
 					
-					elMenu.style.height = cHeight + "px"; 
-					elMenu.style.transform = "translate3d(0%, 0, 0)"; 
+					
+					elMenu.style.transform = "translate3d(0%, 0px, 0px)"; 
+					elMenu.style.backgroundColor = "red";
 					elBody.className = 'side-on';
 					
+					//elBody.className = 'side-on scroll-on';
+					
 				}
+				
+
+
+
+
+
+				//elBody.classList.toggle('side-on');
 		}
 
-	
+
+		/*
+		
+		var sideOpen = function(){
+
+			console.log("ddd");
+
+			var elBody = document.querySeletor('.bd-wrap');
+			
+			elBody.className="aaaa";
+			elBody.className = "side-on";
+
+			if ( hasClass(elBody, 'side-on') ) {
+
+				elBody.className = elBody.className.replace('side-on', "");
+
+			}else{
+
+				
+				elBody.className = "side-on";
+			}
+			
+
+		};
+
+		*/
+
 		//has class 
 		function hasClass(ele,cls) {
 		     return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
