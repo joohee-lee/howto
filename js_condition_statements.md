@@ -92,21 +92,19 @@ false && false = false
 	switch(level){
 		case 1:
 
-			msg = "1. 메세지 "
-			break
+		msg = "1. 메세지 "
+		break
 
 		case 2:
 
-			msg="2. 세 단계중 .... "
-            break();
+		msg="2. 세 단계중 .... "
+		break();
 
 
-        default : 
-        	
-        	msg = '3. 행운을 빕니다.' 
-        	break();   
+		default : 
 
-
+		msg = '3. 행운을 빕니다.' 
+		break();   
 	} 
 
 ```
@@ -157,7 +155,7 @@ false && false = false
 	}else{
 
 		//요소가 존재하지 않음 : 다른 작업을 수행 
-
+	}
 
 ## loop(루프)
 
