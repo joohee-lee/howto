@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>tab-1 -- show/hide </title>
+	<style>
+		body{ 
+			font-family: '맑은 고딕', 'Malgun Gothic', sans-serif ; 
+			font-size: 1;
+			line-height: 1.2;
+		}
+
+		body, div, p, ul, ol, p, li, dd, dt { margin: 0; padding: 0; }
+		ul li, ol li{ list-style: none }
+		div, dl, dt, dd, ul, li,  a, input { box-sizing: border-box;}
+
+
+		.comp-banner{
+			width: 320px;
+			height: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.comp-inner{
+			padding: 20px 0 ;
+			border: 1px solid #ddd;
+		}
+		.comp-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		/*paging*/
+		.paging .num{
+			position: relative;
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+		}
+
+		.paging .num:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "";
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #ddd;
+		}
+		
+		.paging .num em{ 
+			background: transparent none !important;
+			border: none !important;
+			display: block !important;
+			height: 1px !important;
+			overflow: hidden !important;
+			padding: 0 !important;
+			position: absolute !important;
+			top: -999999em !important;
+			width: 1px !important;
+		}
+
+		
+		/* script */
+		.comp-banner .list .item{ display: none; }
+		.comp-banner[data-current="0"] .item[data-idx="0"],
+		.comp-banner[data-current="1"] .item[data-idx="1"],
+		.comp-banner[data-current="2"] .item[data-idx="2"]{display: block;}
+
+		.comp-banner[data-current="0"] .paging .num[data-num="0"]:before,
+		.comp-banner[data-current="1"] .paging .num[data-num="1"]:before,
+		.comp-banner[data-current="2"] .paging .num[data-num="2"]:before{background-color: red;}
+	</style>
+</head>
+<body>
+	<!-- 
+		
+		title. banner rolling 
+		show/hide - data-* attribute usde : data-current / data-idx / data-num 
+		function. next
+		function. autorolling - setInterval / stop - clearInterval
+		animation. x
+
+	-->
+	<h2> Banner -- 1 </h2>
+	<div  id="compBanner--1" class="comp-banner comp-banner-goods" data-current="0">
+		<div class="comp-inner">
+			
+			<!-- image / list -->
+			<ul class="list">
+				<li class="item" data-idx="0">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/129/1013129_20181101111002.jpg" alt="">
+					</a>
+				</li>
+				<li class="item" data-idx="1">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/130/1013130_20181029170816.jpg" alt="">
+					</a>
+				</li>
+				<li class="item" data-idx="2">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/688/1012688_20181017125546.jpg" alt="">
+					</a>
+				</li>
+			</ul>
+			
+			<!-- paging -->
+			<div class="paging">
+				<span class="num" data-num="0" onclick="navSetCurrent('compBanner--1', 0);" tabindex="0"><em>1</em></span>
+				<span class="num" data-num="1" onclick="navSetCurrent('compBanner--1', 1);" tabindex="0"><em>2</em></span>
+				<span class="num" data-num="2" onclick="navSetCurrent('compBanner--1', 2);" tabindex="0"><em>3</em></span>
+			</div>
+			
+			<!-- play/stop -->
+			<!--
+			<div class="control">
+				<span class="next" >
+					<button id="btnNext" type="button" class="btn-next" onclick="rollingBanner1('compBanner--1');">next</button>
+				</span>
+				<span class="play">
+					<button id="btnPlay" type="button" class="btn-play">play</button>
+				</span>
+				<span class="stop">
+					<button id="btnStop" type="button" class="btn-stop">stop</button>
+				</span>
+			</div>
+			-->
+		
+		</div>
+	</div>
+
+	<script>
+		var autorolling = setInterval( function(){ rollingBanner1('compBanner--1'); }, 2000);
+	</script>
+
+	
+	<br>
+	<br>
+	<h2> Banner -- 2 </h2>
+	<div  id="compBanner--2" class="comp-banner comp-banner-goods" data-current="0">
+		<div class="comp-inner">
+			
+			<!-- image / list -->
+			<ul class="list">
+				<li class="item" data-idx="0">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/129/1013129_20181101111002.jpg" alt="">
+					</a>
+				</li>
+				<li class="item" data-idx="1">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/130/1013130_20181029170816.jpg" alt="">
+					</a>
+				</li>
+				<li class="item" data-idx="2">
+					<a href="#">
+						<img src="http://img.shinsegaetvshopping.com/banner/688/1012688_20181017125546.jpg" alt="">
+					</a>
+				</li>
+			</ul>
+			
+			<!-- paging -->
+			<div class="paging">
+				<span class="num" data-num="0" onclick="navSetCurrent('compBanner--2', 0);" tabindex="0"><em>1</em></span>
+				<span class="num" data-num="1" onclick="navSetCurrent('compBanner--2', 1);" tabindex="0"><em>2</em></span>
+				<span class="num" data-num="2" onclick="navSetCurrent('compBanner--2', 2);" tabindex="0"><em>3</em></span>
+			</div>
+			
+			<!-- play/stop -->
+		
+			<div class="control">
+				<span class="next" >
+					<button id="btnNext" type="button" class="btn-next" onclick="rollingBanner1('compBanner--2');">next</button>
+				</span>
+				<span class="play">
+					<button id="btnPlay" type="button" class="btn-play">play</button>
+				</span>
+				<span class="stop">
+					<button id="btnStop" type="button" class="btn-stop">stop</button>
+				</span>
+			</div>
+			
+		
+		</div>
+	</div>
+
+	<script>
+		//var autorolling = setInterval( function(){ rollingBanner1('compBanner--1'); }, 2000);
+	</script>
+<script>
+//next , prev 
+var cc = {
+    nextIndex: function(idx, len) {
+
+    	console.log("next");
+    	console.log(idx);
+    	console.log(len);
+    	
+        idx = idx + 1;
+
+        if ( idx === len ) {
+            
+            idx = 0;
+        }
+
+        return idx; 
+    }, 
+    loopNextIndex: function(idx, len) {
+        idx++; 
+
+        if ( idx === len ) {
+            idx = len - 1; 
+        }
+
+        return idx; 
+    }, 
+    previousIndex: function(idx, len) {
+        idx--; 
+
+        if ( idx < 0 ) {
+            idx = 0;
+        }
+
+        return idx; 
+    }, 
+    loopPreviousIndex: function(idx, len) {
+        idx--; 
+
+        if ( idx < 0 ) {
+            idx = len - 1; 
+        }
+
+        return idx; 
+    }
+};
+
+/* dataset object def. */
+var dataset = {
+
+	get : function(el, attr){
+		return el.getAttribute('data-' + attr);
+	},
+	set : function(el, attr, val){
+		return el.setAttribute('data-' + attr, val);
+	},
+	del : function(el, attr){
+		return el.removeAttribute('data-' + attr);
+	}
+
+};
+
+// Set data-current index
+var setCurrent = function(el, idx){
+	dataset.set( el, 'current', idx);
+};
+
+var navSetCurrent = function(el, idx){
+	var el = document.getElementById(el);
+	setCurrent(el, idx);
+	//dataset.set( el, 'current', idx);
+};
+
+
+/* 이미지 롤링 타입 1 - 하나의 이미지(배너) 롤링한다. */
+var rollingBanner1 = function(id){
+
+	var el = document.getElementById(id);
+	var elItem = el.querySelectorAll('.item' );
+	var leng = elItem.length;
+	var idx  = Number(el.getAttribute('data-current'));// 현재 current 값을  idx 로 칭한다. 
+
+	console.log("now" + idx);
+
+	
+	//console.log(idx);
+	/*
+	idx = Number(idx + 1);
+
+    if ( idx === leng ) {
+        
+        idx = 0;
+    }
+	*/
+
+	//next idx 
+	var ccIdx = cc.nextIndex(idx, leng);
+
+	//setCurrent 
+	setCurrent(el, ccIdx);
+
+};
+
+//rollingType1('compBanner--1');
+
+//var autorolling = setInterval( function(){ rollingBanner1('compBanner--1'); }, 2000);
+
+</script>
+<!--
+	<script src="js/ui-comp.js"></script>
+
+-->	
+</body>
+</html>

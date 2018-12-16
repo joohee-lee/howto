@@ -1,0 +1,473 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab : sanbo UI</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- accordion -->
+	<style>
+		body{ margin: 20px; }
+
+		.ui-header h1{ font-size: 30px; margin-bottom: 20px;}
+		.ui-header h2{ font-size: 20px; }
+		.ui-header h3{ font-size: 16px; }
+		
+
+		.ui-header{ margin-bottom: 20px; }
+		.ui-header li:before{
+			content:'-';
+			display: inline-block;
+			width: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="header">
+		<div class="header-inner">
+
+			<h1>Joo.UI</h1>
+			<span> 산책하는 Web (guideby @donghyuc-kim)</span>
+			
+		</div>
+	</div>
+
+	<div class="ui-header">
+		<h1>UI-components</h1>
+        <h2># Tab </h2>
+        <p>Standard Tab ui / no frameWork / </p>
+   </div>
+
+
+	<div class="ui-header">
+		 <h3>1. Tab - Simple</h3>
+		 <ul>
+		 	<li>Markup : ul,li, button, div </li>
+		 	<li>ARIA Example : role="presentation" / tablist / tab / tabpanel</li>
+		 	<li>JS: 
+		 		<div style="margin-left: 30px; font-weight: bold">	
+		 		window.uiTab = (function(){ ~~~~})();	(즉시실행함수로 설계) <br>	
+				init() <br>
+		 		setTabCurrent()<br>
+		 		setCurrent()<br>
+		 		setNext()<br>
+		 		setPrev() <br>
+		 		setPlay()<br>
+		 		setStop()<br>
+		 		autorolling
+		 		</div>	
+		 	</li>
+		 	<li>setTabCurrent(this, objTab1); this 인자값은 this 를 넘겨  getAttribute("data-index") 값을 가져온다. </li>
+		 	<li>setTabCurrent(this, objTab1) objTab1 .... : 필요한 데이타를 저장하여 처리.  </li>
+		 	<li>js control : data-current / data-index </li>
+		 	<li>css : display / none / block </li>
+		 </ul>
+	</div>
+
+	<style>
+		
+		.comp-tab{
+			width: 100%;
+		}
+		.comp-tab .comp-inner:after,
+		.tablist:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.tablist{
+			margin-left: 0;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.tablist .tab{
+			float: left;
+			display: inline-block;
+			width: 20%;
+			border: 1px solid #ddd;
+			border-left: 0;
+			border-bottom: 0;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			box-sizing: border-box;
+		}
+		.tablist li:first-child{
+			border-left: 1px solid #ddd;
+		}
+		.tab button{
+			display: block;
+			width: 100%;
+			padding: 10px 0;
+			text-align: center;
+			cursor: pointer;
+
+		}
+
+		.tab-panel{
+			width: 100%;
+			height: 300px;
+			border: 1px solid #ddd;
+			border-top: 0;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		.tab-panel .inner{
+			padding: 20px;
+		}
+
+		/* scsript */
+		.comp-tab--1[data-current="1"] .tab[data-index="1"] button,
+		.comp-tab--1[data-current="2"] .tab[data-index="2"] button,
+		.comp-tab--1[data-current="3"] .tab[data-index="3"] button,
+		.comp-tab--1[data-current="4"] .tab[data-index="4"] button,
+		.comp-tab--1[data-current="5"] .tab[data-index="5"] button{
+			background: green;
+			color: #fff;
+			font-weight: bold;
+		}
+		
+		.comp-tab--2[data-current="1"] .tab[data-index="1"] button,
+		.comp-tab--2[data-current="2"] .tab[data-index="2"] button,
+		.comp-tab--2[data-current="3"] .tab[data-index="3"] button,
+		.comp-tab--2[data-current="4"] .tab[data-index="4"] button,
+		.comp-tab--2[data-current="5"] .tab[data-index="5"] button{
+			background: #ddd;
+			color: green;
+			font-weight: bold;
+		}
+
+		.comp-tab--3[data-current="1"] .tab[data-index="1"] button,
+		.comp-tab--3[data-current="2"] .tab[data-index="2"] button,
+		.comp-tab--3[data-current="3"] .tab[data-index="3"] button,
+		.comp-tab--3[data-current="4"] .tab[data-index="4"] button,
+		.comp-tab--3[data-current="5"] .tab[data-index="5"] button{
+			background: #ddd;
+			color: #000;
+			font-weight: bold;
+		}
+		
+		.comp-tab--4[data-current="1"] .tab[data-index="1"] button,
+		.comp-tab--4[data-current="2"] .tab[data-index="2"] button,
+		.comp-tab--4[data-current="3"] .tab[data-index="3"] button,
+		.comp-tab--4[data-current="4"] .tab[data-index="4"] button,
+		.comp-tab--4[data-current="5"] .tab[data-index="5"] button{
+			background: red;
+			color: #fff;
+			font-weight: bold;
+		}
+
+		
+		.comp-tab .tab-panel{ display: none; }
+		.comp-tab[data-current="1"] .tab-panel[data-index="1"],
+		.comp-tab[data-current="2"] .tab-panel[data-index="2"],
+		.comp-tab[data-current="3"] .tab-panel[data-index="3"],
+		.comp-tab[data-current="4"] .tab-panel[data-index="4"],
+		.comp-tab[data-current="5"] .tab-panel[data-index="5"] {
+			display: block;
+		}
+	</style>
+
+	<div class="ui-header">
+		 <h3>#comp-tab1</h3>
+	</div>
+
+	<div id="comp-tab1" class="comp-tab comp-tab--1" data-current="1">
+		<div class="comp-inner">
+			
+			<div class="tablist" role="tablist">
+				<ul>
+					<li class="tab" data-index="1" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab1');"><button type="button" role="tab">Tab1</button></li>
+					<li class="tab" data-index="2" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab1');"><button type="button" role="tab" >Tab2</button></li>
+					<li class="tab" data-index="3" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab1');"><button type="button" role="tab">Tab3</button></li>
+					<li class="tab" data-index="4" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab1');"><button type="button" role="tab">Tab4</button></li>
+					<li class="tab" data-index="5" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab1');"><button type="button" role="tab">Tab5</button></li>
+				</ul>
+			</div>
+
+			<div class="tabPanels">
+				<div class="tab-panel" data-index="1" role="tabpanel">
+					<div class="inner">
+						tab-panel--1
+					</div>
+				</div>
+				<div class="tab-panel" data-index="2" role="tabpanel">
+					<div class="inner">
+						tab-panel--2
+					</div>
+				</div>
+				<div class="tab-panel" data-index="3" role="tabpanel">
+					<div class="inner">
+						tab-panel--3
+					</div>
+				</div>
+				<div class="tab-panel" data-index="4" role="tabpanel">
+					<div class="inner">
+						tab-panel--4
+					</div>
+				</div>
+				<div class="tab-panel" data-index="5"  role="tabpanel">
+					<div class="inner">
+						tab-panel--5
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	
+	<br>
+	<div class="ui-header">
+		 <h3>#comp-tab2</h3>
+	</div>
+
+	<div id="comp-tab2" class="comp-tab comp-tab--2" data-current="1">
+		<div class="comp-inner">
+			
+			<div class="tablist" role="tablist">
+				<ul>
+					<li class="tab" data-index="1" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab2');"><button type="button" role="tab">Tab1</button></li>
+					<li class="tab" data-index="2" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab2');"><button type="button" role="tab" >Tab2</button></li>
+					<li class="tab" data-index="3" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab2');"><button type="button" role="tab">Tab3</button></li>
+				</ul>
+			</div>
+
+			<div class="tabPanels">
+				<div class="tab-panel" data-index="1" role="tabpanel">
+					<div class="inner">
+						tab-panel--1
+					</div>
+				</div>
+				<div class="tab-panel" data-index="2" role="tabpanel">
+					<div class="inner">
+						tab-panel--2
+					</div>
+				</div>
+				<div class="tab-panel" data-index="3" role="tabpanel">
+					<div class="inner">
+						tab-panel--3
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<br>
+	<div class="ui-header">
+		 <h3>#comp-tab3</h3>
+		 <ul>
+		 	<li>prev / next add </li>
+		 </ul>
+	</div>
+
+	<div id="comp-tab3" class="comp-tab comp-tab--3" data-current="1">
+		<div class="comp-inner">
+			
+			<div class="tablist" role="tablist">
+				<ul>
+					<li class="tab" data-index="1" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab3');"><button type="button" role="tab">Tab1</button></li>
+					<li class="tab" data-index="2" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab3');"><button type="button" role="tab" >Tab2</button></li>
+					<li class="tab" data-index="3" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab3');"><button type="button" role="tab">Tab3</button></li>
+					<li class="tab" data-index="4" role="presentation" onclick="uiTab.setTabCurrent(this, 'comp-tab3');"><button type="button" role="tab">Tab4</button></li>
+				</ul>
+			</div>
+
+			<div class="tabPanels">
+				<div class="tab-panel" data-index="1" role="tabpanel">
+					<div class="inner">
+						tab-panel--1
+						<br>
+						prev / next function add
+					</div>
+				</div>
+				<div class="tab-panel" data-index="2" role="tabpanel">
+					<div class="inner">
+						tab-panel--2
+						<br>
+						prev / next function add
+					</div>
+				</div>
+				<div class="tab-panel" data-index="3" role="tabpanel">
+					<div class="inner">
+						tab-panel--3
+						<br>
+						prev / next function add
+					</div>
+				</div>
+				<div class="tab-panel" data-index="4" role="tabpanel">
+					<div class="inner">
+						tab-panel--4
+						<br>
+						prev / next function add
+					</div>
+				</div>
+			</div>
+
+			<!-- control -->
+			<div class="control">
+				<button type="button" class="prev--3" onclick="uiTab.setPrev('comp-tab3');">prev</button>
+				<button type="button" class="next--3" onclick="uiTab.setNext('comp-tab3');">next</button>
+				<button type="button" class="play--3" onclick="setPlay3();">play</button>
+				<button type="button" class="stop--3" onclick="setStop3();">stop</button>
+			</div>
+		
+		</div>
+	</div>
+	<script>
+		var autorolling3 = setInterval( function(){ uiTab.setNext('comp-tab3'); }, 2000);
+		 //setplay
+		function setPlay3(){
+			autorolling3  = setInterval( function(){ uiTab.setNext('comp-tab3'); }, 2000);
+		}
+		//setStop
+		function setStop3(){
+			clearInterval(autorolling3);
+
+		}
+	</script>
+
+	<script>
+// Tab Js 
+//초기값 셋팅
+window.uiTab = (function(){
+
+	//변수 설정 
+	var elCnpt, el;
+	var idx = 1;
+	var leng;
+	var autorolling;
+
+
+	//init 
+	function init(cnpt){
+
+		elCnpt = document.getElementById(cnpt);
+		el = elCnpt.querySelectorAll(".tab");
+		leng = el.length;
+
+		//console.log(obj.elCnpt)
+	}
+	
+
+	//setTabCUrrent 
+	function setTabCurrent(el, cnpt){
+
+		//elCnpt = document.getElementById(cnpt);
+
+		init(cnpt);
+
+		idx = Number(el.getAttribute("data-index"));
+
+		//elCnpt.setAttribute("data-current", idx);
+		setCurrent(cnpt, idx);
+
+	}
+
+	//function setCurrent(){}
+	function setCurrent(cnpt, idx){
+
+		//elCnpt = document.getElementById(cnpt);
+		init(cnpt);
+		elCnpt.setAttribute("data-current", idx);
+	}
+
+	//setNext
+	function setNext(cnpt){
+
+		/*
+		elCnpt = document.getElementById(cnpt);
+		el = elCnpt.querySelectorAll(".tab");
+		leng = el.length;
+		*/
+		init(cnpt);
+		idx = Number(elCnpt.getAttribute("data-current"));
+		
+
+		console.log(elCnpt);
+
+		idx = idx + 1;
+
+		if( idx > leng){
+
+			idx = 1;
+		}
+
+		setCurrent(cnpt, idx);
+		//elCnpt.setAttribute("data-current", idx);
+
+	}
+
+	//setPrev
+	function setPrev(cnpt){
+		
+		/*
+		elCnpt = document.getElementById(cnpt);
+		el = elCnpt.querySelectorAll(".tab");
+		leng = el.length;
+		*/
+		init(cnpt);
+		idx = Number(elCnpt.getAttribute("data-current"));
+		
+		idx = idx - 1;
+
+		if( idx === 0){
+
+			idx = leng;
+		}
+
+		setCurrent(cnpt, idx);
+
+	}
+
+	//setplay / setstop
+	/*
+	function setPlay(auto, cnpt){
+		auto = setInterval( function(){ setNext(cnpt); }, 2000);
+
+	}
+
+	function setStop(auto){
+
+		clearInterval(auto);
+
+	}
+	*/
+
+	return {
+		init : init,
+		setTabCurrent : setTabCurrent,
+		setNext : setNext,
+		setPrev : setPrev
+	};
+
+
+}());
+
+
+
+/* tab */
+/*
+uiTab.init('comp-tab1');
+uiTab.init('comp-tab2');
+uiTab.init('comp-tab3');
+uiTab.init('comp-tab4');
+
+uiTab.setTabCurrent();
+uiTab.setCurrent();
+uiTab.setNext();
+uiTab.setPrev();
+uiTab.setPlay();
+uiTab.setStop();
+*/
+
+
+	</script>
+
+</body>
+</html>

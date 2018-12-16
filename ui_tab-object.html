@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<title>tab-ui-effect  </title>
+  <style>
+body{ 
+  font-family: "맑은 고딕", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+
+}
+
+body, ul, li , dl, dd, div, p, span, a {
+margin: 0;
+padding: 0;
+}
+
+ul li{ list-style: none; }
+
+a{ text-decoration: none; }
+
+.tab-list{
+  
+  width: 640px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+
+}
+
+.tab-inner:after,
+.tabs ul:after{
+  content: '';
+  display: block;
+  clear: both;
+
+}
+
+
+.tabs ul{
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 3px solid #ddd;
+
+}
+
+
+.tabs ul:after{
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;  
+  width: 25%;
+  border-bottom: 3px solid red;
+  transition: 0.5s;
+
+
+}
+
+.tabs li{
+  float: left;
+  position: relative;
+  width: 25%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+
+.tabs li a{
+  display: block;
+
+}
+
+.tab-list .tab-panel {
+   width: 500px;
+   height: 500px;
+   text-align : center;
+}
+
+/* script */
+.tab-list[data-current="0"] .item[data-index="0"] a,
+.tab-list[data-current="1"] .item[data-index="1"] a,
+.tab-list[data-current="2"] .item[data-index="2"] a,
+.tab-list[data-current="3"] .item[data-index="3"] a{
+  color: red;
+}
+
+.tab-list[data-current="0"] .tabs ul:after{
+    left: 0;
+}
+
+.tab-list[data-current="1"] .tabs ul:after{
+    left: 25%;
+}
+
+.tab-list[data-current="2"] .tabs ul:after{
+    left: 50%;
+}
+
+.tab-list[data-current="3"] .tabs ul:after{
+    left: 75%;
+}
+
+
+.tab-list .tab-panel { display: none; }
+
+.tab-list[data-current="0"] .tab-panel[data-index="0"],
+.tab-list[data-current="1"] .tab-panel[data-index="1"],
+.tab-list[data-current="2"] .tab-panel[data-index="2"],
+.tab-list[data-current="3"] .tab-panel[data-index="3"]{
+
+    display: block;
+}
+
+.control {
+  margin-top: 10px;
+  text-align: center;
+}
+
+ h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  
+<!-- note -->
+<!--
+  ## http://www.lotte.com/main/viewMain.lotte?dpml_no=1&tracking=MH_CORNER_01
+  effect css 
+  # transition 
+
+-->
+<h2>Tab (effect) - 롯데몰 main -  tab ui</h2>
+
+<!-- tab markup -->
+<div  id="comp_tabs--1" class="tab-list" data-current="0" data-type="A">
+  <div class="tab-inner">
+      <div class="tabs">
+          <ul>
+            <li class="item" data-index="0"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--1', 0);">tabs-A</a></li>
+            <li class="item" data-index="1"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--1', 1);">tabs-B</a></li>
+            <li class="item" data-index="2"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--1', 2);">tabs-C</a></li>
+            <li class="item" data-index="3"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--1', 3);">tabs-D</a></li>
+          </ul>
+      </div> 
+      <div class="tab-panels">
+        <div class="tab-panel" data-index="0">
+              tab-A content
+        </div>
+        <div class="tab-panel" data-index="1">
+              tab-B content
+        </div>
+        <div class="tab-panel" data-index="2">
+              tab-C content
+        </div>
+        <div class="tab-panel" data-index="3">
+              tab-D content
+        </div>
+      </div>
+
+  </div>
+</div>  
+
+<!-- control -->
+  <div class="control">
+      <button type="button" class="btn-prev" onclick="uiTab._prev('comp_tabs--1');"><span>이전</span></button>
+      <button type="button" class="btn-next" onclick="uiTab._next('comp_tabs--1');"><span>다음</span></button>
+      <button type="button" class="btn-play" onclick="uiTab._play('comp_tabs--1');"><span>play</span></button>
+      <button type="button" class="btn-stop" onclick="uiTab._stop();"><span>stop</span></button>
+  </div>
+
+
+  <br>
+  <br>
+
+  <!-- tab markup -->
+<div  id="comp_tabs--2" class="tab-list" data-current="0" data-type="A">
+  <div class="tab-inner">
+      <div class="tabs">
+          <ul>
+            <li class="item" data-index="0"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--2', 0);">tabs-A</a></li>
+            <li class="item" data-index="1"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--2', 1);">tabs-B</a></li>
+            <li class="item" data-index="2"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--2', 2);">tabs-C</a></li>
+            <li class="item" data-index="3"><a href="#" onclick="uiTab._setTabsCurrent('comp_tabs--2', 3);">tabs-D</a></li>
+          </ul>
+      </div> 
+      <div class="tab-panels">
+        <div class="tab-panel" data-index="0">
+              tab-A content
+        </div>
+        <div class="tab-panel" data-index="1">
+              tab-B content
+        </div>
+        <div class="tab-panel" data-index="2">
+              tab-C content
+        </div>
+        <div class="tab-panel" data-index="3">
+              tab-D content
+        </div>
+      </div>
+
+  </div>
+</div>  
+
+<!-- control -->
+  <div class="control">
+      <button type="button" class="btn-prev" onclick="uiTab._prev('comp_tabs--2');"><span>이전</span></button>
+      <button type="button" class="btn-next" onclick="uiTab._next('comp_tabs--2');"><span>다음</span></button>
+      <button type="button" class="btn-play" onclick="uiTab._play('comp_tabs--2');"><span>play</span></button>
+      <button type="button" class="btn-stop" onclick="uiTab._stop('comp_tabs--2');"><span>stop</span></button>
+  </div>
+
+
+<script>
+
+/*함수 표현식으로 
+
+var newobj = {
+  var1: true,
+  var2: "very interesting",
+
+  method1: function () {
+    alert(this.var1)
+  },
+
+  method2: function () {
+    alert(this.var2)
+  }
+};
+
+newobj.method1();
+newobj.method2();
+
+*/
+
+  var uiTab = {
+
+      //property:value
+      cnptId: '',
+      elItem: '',
+      current: 0,
+      leng: 0,
+      time: 2000,
+      interval: '',
+
+
+      //slector
+      _init:function( cnptId ){
+
+          this.cnptId = document.getElementById(cnptId);
+          this.elItem = this.cnptId.querySelectorAll('.item');
+          this.leng = this.elItem.length;
+      },
+
+      _getCurrent: function(){
+
+          return Number(this.cnptId.getAttribute('data-current'));
+      },
+
+      //next
+      _next: function( cnptId ){
+
+          this._stop(cnptId);
+          
+          this._init(cnptId);
+          this.current = this._getCurrent();
+          this.current = this.current + 1;
+
+          if(this.current === this.leng){
+            this.current = 0;
+          }
+
+          this._setCurrent(this.current);
+          //this.cnptId.setAttribute('data-current', this.current);
+
+          this._play(cnptId);
+
+      },
+
+      //prev
+      _prev: function( cnptId ){
+
+          this._init(cnptId);
+          this.current = this._getCurrent();
+          this.current = this.current - 1;
+
+          if(this.current < 0){
+              this.current = this.leng - 1;
+          }
+
+          this._setCurrent(this.current);
+
+      },
+
+      _setCurrent: function( idx ){
+
+        var idx = this.current 
+        this.cnptId.setAttribute('data-current', idx);
+
+      },
+
+      _setTabsCurrent: function( cnptId, idx){
+
+          this._stop(cnptId);
+          this._init(cnptId);
+          this.cnptId.setAttribute('data-current', idx);
+
+      },
+
+      _play: function(cnptId){
+
+              var self = this;
+              this.interval = setInterval( function(){ self._next(cnptId); }, self.time );
+      },
+
+      _stop: function(){
+
+             window.clearInterval( this.interval );
+      }  
+ 
+  }
+
+  // autorolling 등록 
+  uiTab._play('comp_tabs--1');
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<title>css-ani-tw </title>
+	<style>
+		
+	</style>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<!-- TwM -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<style>
+		body, div, p, ul, li{ margin: 0; padding: 0; }
+		li{list-style: none;}
+		.div-icon{ 
+			position: relative;
+			width: 900px; 
+			margin: 100px auto; 
+			border: 1px solid #ddd; 
+			box-sizing: border-box; 
+		}
+
+		.div-icon:after,
+		.div-icon ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.div-icon > ul > li{
+		    width: 20%;
+		    float: left;
+		    text-align: center;
+		    padding: 10px 0;
+		}
+
+		.div-icon .div-imgs{
+			position: relative;
+		    display: block;
+		    font-size: 13px;
+		    width: 70px;
+		    height: 70px;
+		    margin: 0 auto;
+		}		
+		
+		.item-icon1 .div-imgs .sp-img-2{
+			position: absolute;
+			left: 25px;
+			top: 20px;
+		}
+
+		.item-icon2 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			left: 13px;
+			top: 22px;
+		}
+		
+		.item-icon2 .div-imgs .sp-img-2 .m2{
+			position: absolute;
+			left: 13px;
+			top: 32px;
+		}
+
+		.item-icon3 .div-imgs .sp-img-2{
+			position: absolute;
+			right: 10px;
+			top: 43px;
+		}
+		.item-icon4 .div-imgs .sp-img-2{
+			position: absolute;
+			left: 40px;
+			top: 20px;
+		}
+
+		.item-icon5 .div-imgs .sp-img-2{
+			position: absolute;
+			right: 12px;
+			top: 47px;
+		}
+		
+		.item-icon7 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			right: 3px;
+			top: 43px;
+		}
+
+		.item-icon7 .div-imgs .sp-img-2 .m2{
+			position: absolute;
+			right: 3px;
+			top: 50px;
+
+		}
+
+		.item-icon8 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			left: 19px;
+			top: 40px;
+		
+		}
+
+		.item-icon9 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			right: 20px;
+			top: 50px;
+		
+		}
+
+		.item-icon9 .div-imgs .sp-img-2 .m2{
+			position: absolute;
+			right: 16px;
+			top: 50px;
+		
+		}
+
+		.item-icon9 .div-imgs .sp-img-2 .m3{
+			position: absolute;
+			right: 12px;
+			top: 50px;
+		
+		}
+
+		.item-icon10 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			left: 25px;
+			top: 30px;
+		
+		}
+		
+		.item-icon11 .div-imgs .sp-img-2 .m1{
+			position: absolute;
+			right: 0;
+			top: 20px;
+		
+		}
+
+
+		.div-icon .btn-open{ 
+			position: absolute;
+			left: 50%;
+			bottom: -30px;
+			margin-left: -20px;
+			border: 0;
+			width: 60px;
+			height: 30px;
+			background-color: #ddd;
+
+		}
+			
+		.div-icon[data-open="false"] ul[data-index="1"]{ display: block; }
+		.div-icon[data-open="false"] ul[data-index="2"] { display: none; }
+		.div-icon[data-open="true"] ul[data-index="2"] { display: block; }
+				
+	</style>
+</head>
+<body>
+	<div class="div-icon" data-open="false">
+		
+		<ul  data-index="1">
+			<li class="item-icon1">
+				<a href="#">
+					<div class="div-imgs">	
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon1.png" alt=""></span>
+						<span class="sp-img-2"><img src="http://www.kbinsure.co.kr/images/main/icon/icon1_m1.png" alt=""></span>
+					</div>		
+				</a>	
+			</li>
+			<li class="item-icon2">
+
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon2.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon2_m1.png" alt="" class="m1">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon2_m2.png" alt="" class="m2">
+						</span>
+					</div>
+				</a>
+			</li>
+			<li class="item-icon3">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon3.png" alt=""></span>
+						<span class="sp-img-2"><img src="http://www.kbinsure.co.kr/images/main/icon/icon3_m1.png" alt=""></span>
+					</div>	
+				</a>	
+			</li>
+			<li class="item-icon4">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon4.png" alt=""></span>
+						<span class="sp-img-2"><img src="http://www.kbinsure.co.kr/images/main/icon/icon4_m1.png" alt=""></span>
+					</div>
+				</a>	
+			</li>
+			<li class="item-icon5">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon5.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon5_m1.png" alt="">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon5_m2.png" alt="" style="display:none">
+						</span>
+					</div>	
+				</a>	
+			</li>
+		</ul>
+		
+
+		<ul data-index="2">
+			<li class="item-icon7">
+				<a href="#">
+					<div class="div-imgs">	
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon7.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon7_m1.png" alt=""  class="m1">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon7_m2.png" alt=""  class="m2">
+						</span>
+					</div>		
+				</a>	
+			</li>
+			<li class="item-icon8">
+
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon8.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon8_m1.png" alt="" class="m1">
+						</span>
+					</div>
+				</a>
+			</li>
+			<li class="item-icon9">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon9.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon9_m1.png" alt="" class="m1">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon9_m1.png" alt="" class="m2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon9_m1.png" alt="" class="m3">
+						</span>
+					</div>	
+				</a>	
+			</li>
+			<li class="item-icon10">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon10.png" alt=""></span>
+						<span class="sp-img-2"><img src="http://www.kbinsure.co.kr/images/main/icon/icon10_m1.png" alt="" class="m1"></span>
+					</div>
+				</a>	
+			</li>
+			<li class="item-icon11">
+				<a href="#">
+					<div class="div-imgs">
+						<span class="sp-img-1"><img src="http://www.kbinsure.co.kr/images/main/icon/icon11.png" alt=""></span>
+						<span class="sp-img-2">
+							<img src="http://www.kbinsure.co.kr/images/main/icon/icon11_m1.png" alt="" class="m1">
+						</span>
+					</div>	
+				</a>	
+			</li>
+		</ul>	
+
+		<div class="control">
+			 <button type="button" class="btn-open" onclick="uiAni.setOpen(); return false;"><span class="sp-txt">더보기</span></button>
+		</div>
+	</div>
+
+<script>
+/* iffy 즉시실행함수로 */
+/*
+http://recoveryman.tistory.com/378 
+
+TweenLite.to([Selector], [Duration], {Properties:end values})
+
+*/
+var uiAni = (function(){
+
+	//selecotr : jquery
+	//icon
+	var $ico1 =  $('.div-icon .item-icon1');
+	var $ico2 =  $('.div-icon .item-icon2');
+	var $ico3 =  $('.div-icon .item-icon3');
+	var $ico4 =  $('.div-icon .item-icon4');
+	var $ico5 =  $('.div-icon .item-icon5');
+
+	var $ico7 =  $('.div-icon .item-icon7');
+	var $ico8 =  $('.div-icon .item-icon8');
+	var $ico9 =  $('.div-icon .item-icon9');
+	var $ico10 =  $('.div-icon .item-icon10');
+	var $ico11 =  $('.div-icon .item-icon11');
+
+	//small icon
+	var $sico1 = $('.item-icon1 .sp-img-2'); 
+	var $sico2_1 = $('.item-icon2 .sp-img-2 img').eq(0);
+	var $sico2_2 = $('.item-icon2 .sp-img-2 img').eq(1);
+	 
+	var $sico3 = $('.item-icon3 .sp-img-2'); 
+	var $sico4 = $('.item-icon4 .sp-img-2'); 
+	var $sico5_1 = $('.item-icon5 .sp-img-2').eq(0); 
+	var $sico5_2 = $('.item-icon5 .sp-img-2').eq(1); 
+
+	var $sico7_1 = $('.item-icon7 .sp-img-2 .m1'); 
+	var $sico7_2 = $('.item-icon7 .sp-img-2 .m2'); 
+	
+	var $sico8= $('.item-icon8 .sp-img-2 .m1'); 
+
+	var $sico9_1= $('.item-icon9 .sp-img-2 .m1');
+	var $sico9_2= $('.item-icon9 .sp-img-2 .m2');
+	var $sico9_3= $('.item-icon9 .sp-img-2 .m3');
+	 
+	var $sico10= $('.item-icon10 .sp-img-2 .m1');
+	var $sico11= $('.item-icon11 .sp-img-2 .m1');
+
+	var iconSet = function(){
+
+		console.log("icons set");
+
+		TweenMax.from($ico1, 0.5, {y:40, opacity:0, delay:0.5,ease:Back.easeOut.config(1.7)});
+	    TweenMax.from($ico2, 0.5, {y:40, opacity:0, delay:0.7,ease:Back.easeOut.config(1.7)});
+	    TweenMax.from($ico3, 0.5, {y:40, opacity:0, delay:0.9,ease:Back.easeOut.config(1.7)});
+	    TweenMax.from($ico4, 0.5, {y:40, opacity:0, delay:1.1,ease:Back.easeOut.config(1.7)});
+	    TweenMax.from($ico5, 0.5, {y:40, opacity:0, delay:1.3,ease:Back.easeOut.config(1.7)});
+
+	};
+
+	var iconAni = function(){
+
+		console.log("icons ani");
+
+		$ico1.mouseenter(function(){
+			
+			TweenMax.to( 
+            	$sico1, 0.5, 
+            		{bezier:
+            				{type:'quadratic',  values:[/*p1*/{x:0, y:0}, {x:5, y:0},{x:5, y:5},  /*p2*/{x:5, y:10},{x:0, y:10},  /*p3*/{x:-5, y:10},{x:-5, y:5},  /*p4*/{x:-5, y:0},{x:0, y:0}]}/*bezier end*/, ease:Linear.easeNone}
+            );
+
+		});
+
+		$ico2.mouseenter(function(){
+            TweenMax.from($sico2_1, 0.5, {x:-20, ease:Back.easeOut.config(1.7)});
+            TweenMax.from($sico2_2, 0.5, {x:20, ease:Back.easeOut.config(1.7)});
+        });
+
+        $ico3.mouseenter(function(){
+            TweenMax.from($sico3, 0.7,  {y:15, ease: Elastic.easeOut.config(1, 0.3)});
+        });
+        
+        $ico4.mouseenter(function(){
+            TweenMax.from($sico4, 1, { x:-20,ease: Power2.easeOut});
+        });
+
+        $sico5_2.show();
+        TweenMax.to($sico5_2, 0, { rotation:0, opacity:0,  ease: Power2.easeOut});
+
+        var reset = function(){
+            TweenMax.to($sico5_1, 0.5, { rotation:0, opacity: 1, ease: Expo.easeOut});
+            TweenMax.to($sico5_2, 0.5, { rotation:0, opacity: 0, ease: Expo.easeOut});
+        };
+
+        $ico5.mouseenter(function(){
+            TweenMax.to($sico5_1, 0.5, { rotation:180, opacity:0, ease: Expo.easeOut});
+            TweenMax.to($sico5_2, 0.5, { rotation:180, opacity:1,  ease: Expo.easeOut, onComplete:reset});
+        });
+
+
+         $ico7.mouseenter(function(){
+            TweenMax.from($sico7_1, 0.5, {x:-20, ease:Back.easeOut.config(1.7)});
+            TweenMax.from($sico7_2, 0.5, {x:20, ease:Back.easeOut.config(1.7)});
+        });
+
+        $ico8.mouseenter(function(){
+            //TweenMax.from($sico8, 0.5, {y:-15, ease: Bounce.easeOut});
+            TweenMax.from($sico8, 0.5, {clip:"rect(0px 0px 15px 0px)"});
+        });
+
+        $sico8.css({
+                    'clip': 'rect(0px 15px 15px 0px)',
+                    'width': '15px',
+                    'height': '15px',
+                    'position': 'absolute',
+                    'top': '36px',
+                    'left': '19px'
+        })
+
+         $ico9.mouseenter(function() {
+            TweenMax.from($sico9_1, 0.3, {y:-10, ease: Back.easeOut.config(1.7)});
+            TweenMax.from($sico9_2, 0.3, {y:-10,opacity:0, delay:0.2, ease: Back.easeOut.config(1.7)});
+            TweenMax.from($sico9_3, 0.3, {y:-10,opacity:0, delay:0.4, ease: Back.easeOut.config(1.7)});
+        });
+
+        $ico10.mouseenter(function(){
+            TweenMax.to($sico10, 0.5, {bezier:{type:'quadratic',  values:[/*p1*/{x:0, y:0},{x:5, y:0},{x:5, y:5},  /*p2*/{x:5, y:10},{x:0, y:10},  /*p3*/{x:-5, y:10},{x:-5, y:5},  /*p4*/{x:-5, y:0},{x:0, y:0}]}/*bezier end*/, ease:Linear.easeNone});
+        });
+
+        $ico11.mouseenter(function(){
+            TweenMax.from($sico11, 0.7, { y:-15, ease: Bounce.easeOut});
+        });
+
+
+	};
+
+	//more
+	var setOpen = function(){
+
+		var first = false;
+		var elIcon = $('.div-icon');
+		var elBtnSpan = $('.div-icon .btn-open .sp-txt');
+		var elIconValue = elIcon.attr('data-open');
+
+		/*
+		if( elIconValue === "false" ){
+			 elIcon.attr('data-open', true);
+		}else{
+			 elIcon.attr('data-open', false);
+		}
+	
+		alert(elIconValue);
+		*/
+		if( elIconValue === "false" ){
+			elIcon.attr('data-open', true);
+			elBtnSpan.text('접기');
+			first = true;
+            TweenMax.from($ico7, 0.5, {y:-40, opacity:0, delay:0,ease:Back.easeOut.config(1.7)});
+            TweenMax.from($ico8, 0.5, {y:-40, opacity:0, delay:0.2,ease:Back.easeOut.config(1.7)});
+            TweenMax.from($ico9, 0.5, {y:-40, opacity:0, delay:0.4,ease:Back.easeOut.config(1.7)});
+            TweenMax.from($ico10, 0.5, {y:-40, opacity:0, delay:0.6,ease:Back.easeOut.config(1.7)});
+            TweenMax.from($ico11, 0.5, {y:-40, opacity:0, delay:0.8,ease:Back.easeOut.config(1.7)});
+            /*TweenMax.from('.ico12', 0.5, {y:-40, opacity:0, delay:1,ease:Back.easeOut.config(1.7)});*/
+
+		}else{
+			//first = false;
+			elIcon.attr('data-open', false);
+			elBtnSpan.text('더보기');
+
+		}
+
+
+	};
+
+	return{
+		iconSet:iconSet,
+		iconAni:iconAni,
+		setOpen:setOpen
+	};
+
+}());
+
+// icon 
+uiAni.iconSet();
+uiAni.iconAni();
+
+/*
+var uiIconSet = (function(){
+
+	console.log("icons ani");
+
+	//selecotr : jquery
+	var ico1 =  $('.div-icon .item-icon1');
+	var ico2 =  $('.div-icon .item-icon2');
+	var ico3 =  $('.div-icon .item-icon3');
+	var ico4 =  $('.div-icon .item-icon4');
+	var ico5 =  $('.div-icon .item-icon5');
+
+	TweenMax.from(ico1, 0.5, {y:40, opacity:0, delay:0.5,ease:Back.easeOut.config(1.7)});
+    TweenMax.from(ico2, 0.5, {y:40, opacity:0, delay:0.7,ease:Back.easeOut.config(1.7)});
+    TweenMax.from(ico3, 0.5, {y:40, opacity:0, delay:0.9,ease:Back.easeOut.config(1.7)});
+    TweenMax.from(ico4, 0.5, {y:40, opacity:0, delay:1.1,ease:Back.easeOut.config(1.7)});
+    TweenMax.from(ico5, 0.5, {y:40, opacity:0, delay:1.3,ease:Back.easeOut.config(1.7)});
+
+})();
+*/
+			
+</script>
+</body>
+</html>
