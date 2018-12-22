@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* - - - - - - - - - -
+Common Text Style
+*/
+body{
+    font-family: "SamsungKoreanRegular", "RobotoRegular", Arial, sans-serif;
+    font-size: 12px;        color: #303030;         background:#fff;
+}
+.landing-WW .title H1, .landing-WB .title H1{       color:#fff;}
+.landing-BB .title H1, .landing-BW .title H1{       color:#000;}
+.landing-WW .disclaimer, .landing-BW .disclaimer{   color:#fff;}
+.landing-BB .disclaimer, .landing-WB .disclaimer{   color:#000;}
+
+.landing H1,
+.tips .content H2 STRONG,
+.tips .content H2{
+    font-family: 'SamsungKoreanBold', "RobotoRegular", Arial, sans-serif;
+    color: #000;            word-break: keep-all;
+}
+
+.tips .content H3, .tips .content H3 STRONG, .tips .content H4,
+.tips .content P SPAN, .tips .content P, .tips{
+    font-family: "SamsungKoreanRegular", "RobotoRegular", Arial, sans-serif;
+    color: #303030;         word-break: keep-all;
+}
+.tips .content{             text-align: center;}
+.tips .content H2{
+    font-size: 2.4em;       font-weight: 700;
+    line-height: 1.25em;    letter-spacing: -0.01em;
+}
+.tips .content H3 STRONG,
+.tips .content H4 STRONG{   font-weight: 800;}
+.tips .content H4,
+.tips .content H3{
+    font-size: 1.9em;       font-weight: 600;
+    letter-spacing: 0.01em; line-height: 1.25em;
+}
+.tips H4{                   font-size: 1.3em;       }
+.tips P{                    font-weight: 400;       line-height: 1.5em;}
+.tips P A{                  text-decoration: none;  }
+.tips P B{                  color: #000;            font-weight: 500;}
+.tips .small{               font-size: 0.8em;       }
+.tips .source{              font-size: 0.6em;       }
+.tips .icon{                width: 1.2em;           }
+.tips .blue SPAN,
+.tips .blue{                color: #04b5ff !important; }
+
+
+/* - - - - - - - - - -
+Layout Style
+*/
+.landing .title SPAN, 
+.footer SPAN,
+.tips H3 SPAN, .tips H2 SPAN, .tips P SPAN{
+    display: inline-block;
+}
+.tips{
+    width: 100%;            min-width: 320px;       overflow: hidden;
+}
+.landing{
+    background-image: url(landing.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 62.54vw;
+}
+
+.landing .title{
+    width: 60.2vw;            margin-left: 39.8vw;      display: table;
+}
+
+.landing .title DIV{
+    display: table-cell;    text-align: center;     vertical-align: middle;
+    width: 57.2vw;   height: 62.54vw;        padding: 1em 0 0.5em 0;
+}
+.landing .title H1{
+    display: inline-block;  text-align: left;
+    font-weight: 600;       line-height: 1.1em;     letter-spacing: -0.06em;
+}
+.landing .logoarea{
+    position: absolute;     text-align: right;
+    top: 0px;               width: 100%;
+}
+.landing .logoarea IMG{
+    width: 18vw;       height: auto;
+    max-width: 186px;      margin: 6.944vw 6.944vw;
+}
+
+.footer SPAN{               font-size: 0.7em;}
+.footer .copyright{         color: #303030;}
+.footer .notes{             color: #0486ff;}
+.footer{
+    text-align: center;     word-break: keep-all;   box-sizing: border-box;
+    line-height: 1.2em;     padding: 4.5em 1.5em;
+}
+
+.tips .toplogo{             width: 194px;           height: auto;}
+.tips .division{            width: 100%;            margin: 0 auto;}
+.tips .wide{                width: 100%;            height: auto;}
+.tips .high{                color: #0fb2e2;}
+.tips .link SPAN{
+    display: inline-block;
+    font-size: 0.6em;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.5em;
+    border-bottom: solid 1px #000;
+}
+.tips .link A{
+    display: block;         text-decoration: none;
+    font-size: 0.6em;       padding: 0 5em;
+}
+.tips .icon{
+    width: 1.2em;           margin: 0 !important;
+    height: auto;           vertical-align: text-bottom;
+}
+
+.tips .numberic{
+    font-size: 1.9em;       margin-top: 1.5em;      display: inline-block;
+}
+.tips .numberic SPAN{
+    display: table-cell;    vertical-align: middle; background-color: #04b5ff;
+    color: #fff;            width: 2em;             height: 2em;
+    font-size: 1.0em;       font-weight: 700;       border-radius: 1em;
+}
+
+/* - - - - - - - - - -
+Margin Style
+*/
+.tips P{    margin-top: 2.4em;  padding: 0em 2em;}
+.tips H2{   margin-top: 1.35em; margin-bottom: -0.6em;  padding: 0 0.5em;}
+.tips H3{   margin-top: 1.5em;  margin-bottom: -0.6em;  padding: 0 0.5em;}
+.tips H4{   margin-top: 1.5em;  margin-bottom: -0.6em;  padding: 0 0.5em;}
+.tips IMG{  margin-top: 2.8em;}
+
+
+.div-img  {
+    position: relative;
+}
+.div-img  .sp-text{
+    font-size: 1.9em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.25em;
+    color: #fff;
+    text-align: left;
+}
+
+.div-img .span-h{
+    width: 70vw;
+    text-align: left;
+}
+.div-img[data-type="A"]  .span-h{
+    position: absolute;
+    left: 19vw;
+    bottom: 8vw;
+}
+
+.div-img[data-type="B"]  .span-h{
+    position: absolute;
+    left: 19vw;
+    bottom: 6vw;
+}
+
+.div-img[data-type="C"]  .span-h{
+    position: absolute;
+    left: 19vw;
+    bottom: 6vw;
+}
+
+
+.div-link a{
+        display: block;
+        background-color: #000;
+        border-radius: ;
+        padding: 0.8vw 0 1.8vw;
+        border-radius: 5em;
+        font-size: 1.9em;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        line-height: 1.25em;
+        color: #fff;
+        margin: 6vw  auto 0;
+        width: 70vw;
+        max-width: 700px;
+        text-decoration: none;
+
+   }
+
+@media screen and (min-width: 320px){ /* XS */
+    .tip{                       overflow: scroll;}
+    .landing .title H1{         font-size: 1.2em;}
+}
+
+
+@media screen and (max-width: 559px){ /* XS */
+    .footer, .content{          font-size: 1.2em;}
+    .landing .title H1{         font-size: 1.9em;}
+    .div-img .span-h .sp-text{ font-size: 1.1em; }
+    .div-img[data-type="B"] .span-h .sp-text{ font-size: 1em; }
+    .div-link a{ font-size: 1.3em;}
+  
+}
+
+@media screen and (min-width: 568px){ /* SM */
+    .footer, .content{          font-size: 1.3em;}
+    .landing .title H1{         font-size: 3.3em;}
+      .div-img .span-h .sp-text{ font-size: 1.6em; }
+}
+
+
+@media screen and (min-width: 767px){ /* MD */
+    .footer, .content{          font-size: 1.5em;}
+    .landing .title H1{         font-size: 6.5vw;}
+    .div-img .span-h{  width: 90vw; }
+ 
+}
+
+@media screen and (min-width: 1100px){ /* LG */
+    .landing .logoarea, .tips .division{                max-width: 1100px;  }
+    .landing, .landing .title DIV{
+        height: 688px;          max-height: 688px;      text-align: left;   }
+
+    .landing .logoarea IMG{     max-width: 151px;       margin: 75px;    }
+
+    .landing .title{            width: 60%;             margin-left: 40%;   }
+    .landing .title H1{
+        text-align: left;       font-size: 6.6em;       padding-left: 0.0em;}
+    .footer, .content{          font-size: 2em;                             }
+    .landing .disclaimer{
+        width: 550px;           font-size: 1.4em;
+        top: 630px;             margin-left: 550px;                         }
+}
+@media screen and (min-width: 1440px){ /* XL */
+    .landing .logoarea, .tips .division{                max-width: 1440px;  } 
+    .landing, .landing .title DIV{
+        height: 900px;          max-height: 900px;}
+    .landing .logoarea IMG{ max-width: 186px; margin: 100px 96px 90px; }
+    .landing .title H1{ font-size: 8.6em;  padding-left: 0.0em;}
+    .footer, .content, .div-link a{font-size: 2.69em; }
+    .div-link a{ font-size: 1.9em; }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
