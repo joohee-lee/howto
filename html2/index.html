@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Tips</title>
+<title>Bixby</title>
 <link rel="stylesheet" type="text/css" href="https://img.samsungmembers.com/tips/css/reset.css">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -23,7 +23,7 @@
                 </h1>
             </div>
         </div>
-        <div class="logoarea"><img src="logo.png"/></div>
+        <div class="logoarea"><img src="logo.png" alt="Bixby"/></div>
     </div>
         
     <div class="content division">
@@ -130,17 +130,18 @@
 
 <script>
     // 삼성 device check
+    // Samsung Galaxy Note 8 (GT-N5100) 
     // Samsung Galaxy S9/S9+ ( SM-G960F / SM-G965F)
     // Samsung Galaxy   s8 / galaxy s8+ ( SM-G950F / SM-G955F)
     var UserAgent = navigator.userAgent.toLowerCase();
 
     function elGo(){
 
-        console.log("UserAgent: " + UserAgent);
+        //console.log("UserAgent: " + UserAgent);
 
         var elLink = document.getElementById("linkBixby"); 
 
-        if ( UserAgent.match(/sm-g950f|sm-g955f|sm-g960f|sm-g965f|lgms323/) )
+        if ( UserAgent.match(/sm-g950f|sm-g955f|sm-g960f|sm-g965f|gt-n5100/) )
         {
             location.href = "https://naver.com";
         }
@@ -148,11 +149,7 @@
         {
              location.href = "https://daum.net";
         }
-       
-
     }
-    
-
 </script>
     
 </body>
