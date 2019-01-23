@@ -152,8 +152,9 @@ body{ background-color: #f5f8f1;}
 @media (min-width: 600px) and (orientation: landscape) {
 
     .sm-modal { 
-        margin-left: -43%;
         width: 86%; 
+        margin-left: -43%;
+        margin-top: -24%;
     }
 
 }
