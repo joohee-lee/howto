@@ -40,9 +40,9 @@
 			elFram.setAttribute('src', 'imgs/player_blank.png');
 		}
 
+		/*
 		window.onpageshow = function(event) {
 		    if (event.persisted) {
-		        //document.location.reload();
 		         alert("xxx");
 		        uiModalClose();
 		    }
@@ -56,14 +56,22 @@
 			        document.location.reload();
 			        uiModalClose();
 
-			        // Handle the back (or forward) buttons here
-			        // Will NOT handle refresh, use onbeforeunload for this.
+			      
 		};
 
 		window.onbeforeunload = function(e) {
 		  
 		  alert("test");
 
+		};
+
+		*/
+
+		window.onpageshow = function(event) {
+		    if (event.persisted) {
+		        document.location.reload();
+		        console.log("fkfkfkfk");
+		    }
 		};
 	</script>
 </head>
