@@ -149,6 +149,15 @@ body{ background-color: #f5f8f1;}
     z-index: 1001;
 }
 
+@media (min-width: 600px) and (orientation: landscape) {
+
+    .sm-modal { 
+        margin-left: -43%;
+        width: 86%; 
+    }
+
+}
+
 .sm-modal .modal-dialog{
     position: relative;
     width: 100%;
