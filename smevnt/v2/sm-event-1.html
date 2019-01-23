@@ -11,7 +11,7 @@
 	 */
 		function uiModalOpen(el){
 
-			//var elBody = document.body;
+			var elBody = document.body;
 			var elNum = el.getAttribute('data-num');
 			var elAvi = el.getAttribute('data-value');
 			var elem = document.getElementById("modal");
@@ -22,6 +22,8 @@
 
 
 			if( elem.className.indexOf("is-show") !==  1){
+				
+				elBody.className = "modal-open";		
 				elem.className += " is-show";
 			}
 			
@@ -32,13 +34,17 @@
 		function uiModalClose(){
 
 			alert("close");
-			//var elBody = document.body;
+			var elBody = document.body;
 			var elem = document.getElementById("modal");
 			var elFram = document.getElementsByTagName('iframe')[0];
 
-			//elBody.className = "";
+			elBody.className = "";
 			elem.className = "sm-modal";
 			elFram.setAttribute('src', 'imgs/player_blank.png');
+		}
+
+		document.body.onclick = function(){
+			//uiModalClose();
 		}
 
 		/*
@@ -136,17 +142,17 @@ and make it your own!"></p>
 	</div>	
 
 	
-	<!--<div class="div-dimmed"><button type="button" class="btn-modal-close" onclick="uiModalClose();"><img src="imgs/btn-close.png" alt="modal close"></button></div>-->
+  <div class="div-dimmed"><button type="button" class="btn-modal-close" onclick="uiModalClose();"><img src="imgs/btn-close.png" alt="modal close"></button></div>
 	
 	<!-- modal -->
 	<!-- data-value :  avi modal  -->
-	<div id="modal" class="sm-modal" onclick="uiModalClose();">
+	<div id="modal" class="sm-modal">
 		<div class="modal-close-btn" ><button type="button" class="btn-modal-close" onclick="uiModalClose();"><img src="imgs/btn-close.png" alt="modal close"></button></div>
 		<div class="modal-middle">
 			<div class="modal-dialog">
 				<img src="imgs/player_blank.png" width="100%"  height="100%" alt="">
 				<div class="div-youtube">
-					<iframe  id="ifrPlay" width="100%" height="100%" src="imgs/player_blank.png"  frameborder="0" scrolling="no" allowfullscreen />
+					<iframe  id="ifrPlay" width="100%" height="100%" src=""  frameborder="0" scrolling="no" allowfullscreen />
 				</div>
 			</div>	
 		</div>
