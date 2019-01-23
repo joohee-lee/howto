@@ -107,7 +107,7 @@
         </p>
         <!-- link -->
         <div class="div-link">
-            <a href="#" id="linkBixby" target="_blank"><span>빅스비만나기</span></a>
+            <a href="#" id="linkBixby" onclick="elGo(); return false;" target="_blank"><span>빅스비만나기</span></a>
         </div>
          <!-- link -->
     </div>
@@ -127,6 +127,30 @@
     </div>
 
 </div>
+
+<script>
+    // 삼성 device check
+    // Samsung Galaxy Note 8 (GT-N5100) 
+    // Samsung Galaxy S9/S9+ ( SM-G960F / SM-G965F)
+    // Samsung Galaxy   s8 / galaxy s8+ ( SM-G950F / SM-G955F)
+    var UserAgent = navigator.userAgent.toLowerCase();
+
+    function elGo(){
+
+        //console.log("UserAgent: " + UserAgent);
+
+        var elLink = document.getElementById("linkBixby"); 
+
+        if ( UserAgent.match(/sm-g950f|sm-g955f|sm-g960f|sm-g965f|gt-n5100/) )
+        {
+            location.href = "https://naver.com";
+        }
+        else
+        {
+             location.href = "https://daum.net";
+        }
+    }
+</script>
     
 </body>
 </html>

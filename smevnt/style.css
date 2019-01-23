@@ -1,0 +1,175 @@
+@charset "UTF-8";
+
+body{
+    word-wrap:break-word;
+    word-break:break-all;
+    -webkit-text-size-adjust:none;
+    background-color:#fff
+}
+article,blockquote,body,button,dd,div,dl,dt,fieldset
+,figure,footer,form,h1,h2,h3,h4,h5,h6,header,html,input,legend,li,
+main,nav,ol,p,pre,section,select,span,td,textarea,th,ul{
+    margin:0;
+    padding:0;
+}
+body,button,h1,h2,h3,h4,h5,h6,input,select,textarea{
+    font-family:Helvetica,Apple-Gothic,Dotum,돋움,Gulim,굴림, sans-serif;
+}
+
+li,ol,ul{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+
+}
+button,fieldset,img,input{
+    border:0 none;
+}
+img,input,select,textarea{
+    vertical-align:middle;
+}
+address,em{
+    font-style:normal;
+}
+input{
+    border-radius:0;
+}
+hr{
+    clear:both;
+    height:0;
+    border:0;
+    overflow:hidden;
+}
+
+img{
+	width: 100%;
+	max-width: 100%;
+}
+
+
+body{ background-color: #f5f8f1;}
+
+.blind{
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    left: 0; top: 0;
+    width: 1px; height: 1px;
+    font-size: 0;
+    clip: rect(1px 1px 1px 1px);
+}
+
+.sm-wrap{
+    width: 100%;
+}
+
+.section{
+    margin-bottom: 8%;
+}
+
+.section:first-child{
+    margin-bottom: 0;
+}
+.section-inner{
+    position: relative;
+}
+
+.section-inner .div-video{
+    position: absolute;
+    left: 8.4%;
+    /*background: yellow;*/
+    width: 83.45%;
+    height: 46%;
+}
+
+.section-inner .div-video a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.section-inner .div-video img{ width: 100%; }
+
+.section[data-index="2"] .div-video{
+    top: 50.7%;
+}
+
+.section[data-index="3"] .div-video{
+    top: 48.5%;
+    height: 48%;
+}
+
+.section[data-index="4"] .div-video{
+    top: 48.5%;
+    height: 48%;
+}
+
+.section[data-index="5"] .div-video{
+    top: 48.4%;
+    height: 48%;
+}
+
+.section[data-index="6"] .div-video{
+    top: 44.2%;
+    height: 51.5%;
+}
+
+.div-dimmed{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, .5);
+    z-index: 1000;
+}
+
+.btn-modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    color: #000;
+}
+
+.sm-modal{
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -47%;
+    margin-top: -26%;
+    width: 94%;
+    z-index: 1001;
+}
+
+.sm-modal .modal-dialog{
+    position: relative;
+    width: 100%;
+}
+
+.sm-modal .modal-dialog .div-youtube{
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;
+}
+
+.modal-open{
+     overflow: hidden;
+}
+
+.modal-open .div-dimmed{
+    display: block;
+}
+
+.modal-open .sm-modal{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.modal-open .is-show{ display: block;}

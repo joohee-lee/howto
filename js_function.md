@@ -3,26 +3,29 @@
 
 ## 함수표현식 (Function Literal)
 ```
-/anonymous function expression
-var foo = function() {
-    console.log('hello');
-};
+	
+	/anonymous function expression
+	var foo = function() {
+	    console.log('hello');
+	};
 
-//named function expression
-var foo = function foo() {
-    console.log('hello');
-};
+	//named function expression
+	var foo = function foo() {
+	    console.log('hello');
+	};
 
-// self invoking function expression
-(function foo() {
-    console.log('hello');
-})();
+	// self invoking function expression
+	(function foo() {
+	    console.log('hello');
+	})();
+
 ```
 
 함수정의 코드 
 
 ## named function expression (기명 함수 표현식 )
 ```
+	
 	var add = function add(a , b){
 		 return a + b ;
 	};
@@ -43,6 +46,7 @@ var foo = function foo() {
 
 
 ```
+	
 	var findNodes = function(callback){
 		var i = 10000,
 			nodes =[],
@@ -77,30 +81,34 @@ var foo = function foo() {
 
 
 	findeNodes( hide );
+
 ```
 ```
-var newobj = {
-  var1: true,
-  var2: "very interesting",
 
-  method1: function () {
-    alert(this.var1)
-  },
+	var newobj = {
+	  var1: true,
+	  var2: "very interesting",
 
-  method2: function () {
-    alert(this.var2)
-  }
-};
+	  method1: function () {
+	    alert(this.var1)
+	  },
 
-newobj.method1();
-newobj.method2();
+	  method2: function () {
+	    alert(this.var2)
+	  }
+	};
+
+	newobj.method1();
+	newobj.method2();
 
 ```
 
 ## 함수 선언
 
 ```
+	
 	function foo(){
 		// 함수 본문
 	}
+
 ```
