@@ -31,6 +31,7 @@
 
 		function uiModalClose(){
 
+			alert("close");
 			//var elBody = document.body;
 			var elem = document.getElementById("modal");
 			var elFram = document.getElementsByTagName('iframe')[0];
@@ -67,12 +68,6 @@
 
 		*/
 
-		window.onpageshow = function(event) {
-		    if (event.persisted) {
-		        document.location.reload();
-		        console.log("fkfkfkfk");
-		    }
-		};
 	</script>
 </head>
 <body class="">
