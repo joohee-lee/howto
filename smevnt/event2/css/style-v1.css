@@ -46,7 +46,7 @@ hr{
 
 img{
 	width: 100%;
-	/*max-width: 100%;*/
+	max-width: 100%;
 }
 
 
@@ -70,9 +70,6 @@ body{ background-color: #f5f8f1;}
     margin-bottom: 8%;
 }
 
-.section:first-child{
-    margin-bottom: 0;
-}
 .section-inner{
     position: relative;
 }
@@ -80,8 +77,9 @@ body{ background-color: #f5f8f1;}
 .section-inner .div-video{
     position: absolute;
     left: 8.4%;
+    background: yellow;
     width: 83.45%;
-    height: 46%;
+    height: 50.8%;
 }
 
 .section-inner .div-video a{
@@ -93,77 +91,57 @@ body{ background-color: #f5f8f1;}
 .section-inner .div-video img{ width: 100%; }
 
 .section[data-index="2"] .div-video{
-    top: 50.7%;
+    top: 45%;
 }
 
 .section[data-index="3"] .div-video{
-    top: 48.5%;
-    height: 48%;
+    top: 44.7%;
 }
 
 .section[data-index="4"] .div-video{
-    top: 48.5%;
-    height: 48%;
+    top: 45%;
 }
 
 .section[data-index="5"] .div-video{
-    top: 48.4%;
-    height: 48%;
+    top: 48%;
+    height: 47.9%;
 }
 
 .section[data-index="6"] .div-video{
-    top: 44.2%;
-    height: 51.5%;
+    top: 46.1%;
+    height: 50%;
 }
 
-.div-dimmed{
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 36px;
-    z-index: 1002;
+.section[data-index="7"] .div-video{
+    top: 45.4%;
+    height: 50.5%;
 }
 
-.btn-modal-close{
-    width: 36px;
-    height: 36px;
-    background-color: #fff;
-    color: #000;
-
+.section[data-index="8"]  .div-link{
+    position: absolute;
+    top: 70%;
+    left: 4.3%;
+    background: red;
+    width: 91.4%;
+    height: 30%;
 }
 
-.sm-modal{
-  
-    display: none;
-    position: fixed;
-    left: 0;
-    top:  0;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-    background: rgba(0,0,0, .5);
-    
-}
-
-.sm-modal .modal-dialog{
+.section[data-index="8"]  .div-link a{
+    display: block;
     width: 100%;
     height: 100%;
 }
 
-.sm-modal .modal-dialog .div-youtube{
-    position: absolute; left: 0; top: 0;
-    width: 100%; height: 100%;
+/* modal add css */
+.blocker{
+    background-color: rgba(0,0,0,0.5);
 }
-
- .is-show{ display: block;}
-
-.sm-modal  .modal-close-btn {
-     position: absolute;
-     top: 40px;
-     left: 20px;
-     z-index: 1002;
+.modal{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
 }
-
-.modal-open .div-dimmed{display: block;}
+.modal iframe{ width: 100%; height: 100%;}

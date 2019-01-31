@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>event</title>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript">
+	/*
+	@param data-value : youtube 동영상 코드 ;
+	 */
+	 /*
+		function uiModalOpen(el){
+
+			var elBody = document.body;
+			var elNum = el.getAttribute('data-num');
+			var elAvi = el.getAttribute('data-value');
+			var elem = document.getElementById("modal");
+			var elFram = document.getElementsByTagName('iframe')[0];
+			console.log(elNum);
+			console.log(elAvi );
+			console.log(elFram);	
+
+
+			if( elBody.className.indexOf("modal-open") !==  1){
+				elBody.className = "modal-open";
+				elem.className += " is-show";
+			}
+			
+			elFram.setAttribute('src', 'https://www.youtube.com/embed/'+elAvi +'?rel=0');
+
+		}
+
+		function uiModalClose(){
+
+			var elBody = document.body;
+			var elem = document.getElementById("modal");
+			var elFram = document.getElementsByTagName('iframe')[0];
+
+			elBody.className = "";
+			elem.className = "sm-modal";
+			elFram.setAttribute('src', 'imgs/player_blank.png');
+		}
+	*/	
+
+	function uiModalOpen(e){
+
+
+		e.preventDefault();
+
+/*
+		var elBody = document.body;
+		var el = document.getElementById(el);
+		var elIfr = el.getElementsByTagName('iframe')[0];
+
+		console.log(elIfr);
+
+		elBody.style.overflow = 'hidden';
+		elIfr.style.display ='block';
+*/
+
+	}
+
+
+	function uiModalClose(el){
+
+		alert("test2");
+
+		var elBody = document.body;
+		var el = document.getElementById(el);
+		var elIfr = el.getElementsByTagName('iframe')[0];
+
+		elBody.style.overflow = '';
+		elIfr.style.display ='';
+
+
+	}
+	</script>
+</head>
+<body class="">
+	<div class="sm-wrap">
+
+		<!-- section -->
+		<section class="section" data-index="1">
+			<div class="section-inner">
+				<h1 class="sp-item1"><img src="imgs/h-img.jpg" alt="samsung Health"></h1>
+				<p><img src="imgs/v1-img1.jpg" alt="Navigating Samsung Health:The Basics Done Your Way"></p>
+				<p><img src="imgs/v1-img2.jpg" alt=" Basic features set by you, for you –add a personal touch to the app
+and make it your own!"></p>
+			</div>
+		</section>
+	
+		<section class="section" data-index="2">
+			<div class="section-inner">
+				<h2 class="blind">Home Tab</h2>
+				<img src="imgs/v2_img.jpg" alt="Control what you see in your home feed! Customize your preferences">	
+				<div class="div-video">
+					<a href="#"  data-num="1" data-value="Me8ovirNaI8" onclick="uiModalOpen(this)";  return false;' title="Home Tab"><span class="blind">How to customize your - Discover tab</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" data-index="3">
+			<div class="section-inner">
+				<h2 class="blind">Discover Tab</h2>
+				<img src="imgs/v3_img.jpg" alt="Your one-stop hub for health tips and tricks! Discover a healthier lifestyle today">	
+				<div class="div-video">
+					<a href="#" data-num="2"  data-value="GbYOFZoT5c4" onclick="uiModalOpen(this);  return false;" title="Discover tab"><span class="blind">How to use the - Discover tab</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" data-index="4">
+			<div class="section-inner">
+				<h2 class="blind">Profile settings</h2>
+				<img src="imgs/v4_img.jpg" alt="Set your weight and nutrition goals to easily track your progress!">	
+				<div class="div-video">
+					<a href="#" data-num="3"  data-value="vunm75gwrnc" onclick="uiModalOpen(this);  return false;"><span class="blind">How to make a - profile</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" data-index="5">
+			<div class="section-inner">
+				<h2 class="blind">Compatible accessories</h2>
+				<img src="imgs/v5_img.jpg" alt="Learn how to supercharge your health and sync up devices for smarter tracking">
+				<div class="div-video">
+					<a href="#" data-num="4"  data-value="O6R_QQqoijw" onclick="uiModalOpen(this);  return false;"><span class="blind">How to connect  width - accessories</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" data-index="6">
+			<div class="section-inner">
+				<h2 class="blind">Data backup</h2>
+				<img src="imgs/v6_img.jpg" alt="Want to keep your data safe and secure? Here's how">	
+				<div class="div-video">
+					<a href="#" data-num="5"  data-value="c1S6gJzALDU" onclick="uiModalOpen(this);  return false;"><span class="blind">How to do a  - backup</span></a>
+				</div>
+			</div>
+		</section>
+
+	</div>	
+
+	<!--
+	<div class="div-dimmed"><button type="button" class="btn-modal-close" onclick="uiModalClose();"><img src="imgs/btn-close.png" alt="modal close"></button></div>
+	-->
+	<!-- modal -->
+	<!-- data-value :  avi modal  -->
+	<!--
+	<div id="modal" class="sm-modal">
+				<img src="imgs/player_blank.png" alt="">
+				<div class="div-youtube">
+					<iframe  id="ifrPlay" width="100%" height="100%" src="imgs/player_blank.png"  frameborder="0" scrolling="no" allowfullscreen />
+				</div>
+		
+	</div>
+	-->
+	
+	<div id="ex1" class="div-modal">
+		<iframe  frameborder="0" width="100%" height="100%" src="https://www.youtube.com/embed/vunm75gwrnc"  frameborder="0" scrolling="no" allowfullscreen ></iframe>
+	</div>
+
+
+</body>
+</html>
